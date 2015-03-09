@@ -65,3 +65,7 @@ Moment
 Node.js
 
 Sails
+
+##Contact Hugh:
+
+https://www.linkedin.com/pub/dir/HUGH/DEVORE
