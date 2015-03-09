@@ -20,33 +20,60 @@ Links to wireframes of your project. Ideally embed them in this README.
 
     var User = Waterline.Collection.extend({
   
-      attributes: {
-    
+      info: {
         firstName: {
           type: 'string',
           required: true
         },
-    
         lastName: {
           type: 'string',
-          required: true,
+          required: true
         },
-          
-          dateOfBirth: {
-            type: 'date',
-            required: true,
+        dateOfBirth: {
+          type: 'date',
+          required: true
+        },
+        email: {
+          type: 'string',
+          required: true
+        },
+        password: {
+          type: 'string',
+          required: true
+        }
+      },
+      
+      income: {
+        schedule: {
+          type: 'string',
+          required: true
+        },
+        hours: {
+          type: 'integer',
+          required: false
+        },
+        weekday: {
+          type: 'string',
+          required: false
+        },
+        amount: {
+          type: 'integer',
+          required: true
+        },
+        taxes: {
+          type: 'string',
+          required: true
           }
-        },
+      },
+      
+      outcome: {
         
-          email: {
-            type: 'string',
-            required: true,
-          },
-          
-          password: {
-            type: 'string',
-            required: true,
-          }
+      }
+      
+      outcome: {
+      
+      }
+      
       });
       
 
