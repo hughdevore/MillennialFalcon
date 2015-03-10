@@ -19,8 +19,11 @@ Links to wireframes of your project. Ideally embed them in this README.
 ## Models
 
     var User = Waterline.Collection.extend({
+      tableName: 'user',
+      
+      adapter: 'postgresql',
   
-      info: {
+      attributes: {
         firstName: {
           type: 'string',
           required: true
@@ -40,78 +43,76 @@ Links to wireframes of your project. Ideally embed them in this README.
         password: {
           type: 'string',
           required: true
-        }
-      },
-    
-      storage: {
-        name: {
-          type: 'string',
-          required: true
         },
-        balance: {
-          type: 'integer',
-          required: true
-      },
-      
-      income: {
-        name: {
+        
+        storage: {
+          name: {
             type: 'string',
             required: true
+          },
+          balance: {
+            type: 'integer',
+            required: true
+          }
         },
-        frequency: {
-          type: 'string',
-          required: true
-        },
-        hours: {
-          type: 'integer',
-          required: false
-        },
-        weekday: {
-          type: 'string',
-          required: false
-        },
-        amount: {
-          type: 'integer',
-          required: true
-        },
-        taxes: {
-          type: 'string',
-          required: true
-        },
-        location: {
-          type: 'string',
-          required: true
-        }
-      },
-      
-      outcome: {
-        name: {
-          type: 'string',
-          required: true
-        },
-        frequency: {
-          type: 'string',
-          required: true
-        },
-        dueDay: {
-          type: 'string',
-          required: false
-        },
-        dueDate: {
-          type: 'integer',
-          required: false
-        },
-        amount: {
-          type: 'integer'
-          required: true
-        },
-        location: {
-          type: 'string',
-          required: true
-        }
         
-      }
-      
+        income: {
+          name: {
+              type: 'string',
+              required: true
+          },
+          frequency: {
+            type: 'string',
+            required: true
+          },
+          hours: {
+            type: 'integer',
+            required: false
+          },
+          weekday: {
+            type: 'string',
+            required: false
+          },
+          amount: {
+            type: 'integer',
+            required: true
+          },
+          taxes: {
+            type: 'string',
+            required: true
+          },
+          location: {
+            type: 'string',
+            required: true
+          }
+        },
+        
+        outcome: {
+          name: {
+            type: 'string',
+            required: true
+          },
+          frequency: {
+            type: 'string',
+            required: true
+          },
+          dueDay: {
+            type: 'string',
+            required: false
+          },
+          dueDate: {
+            type: 'integer',
+            required: false
+          },
+          amount: {
+            type: 'integer'
+            required: true
+          },
+          location: {
+            type: 'string',
+            required: true
+          }
+        }
     });
       
 
