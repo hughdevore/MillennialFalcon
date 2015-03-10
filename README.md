@@ -42,9 +42,23 @@ Links to wireframes of your project. Ideally embed them in this README.
           required: true
         }
       },
+    
+      storage: {
+        name: {
+          type: 'string',
+          required: true
+        },
+        balance: {
+          type: 'integer',
+          required: true
+      },
       
       income: {
-        schedule: {
+        name: {
+            type: 'string',
+            required: true
+        },
+        frequency: {
           type: 'string',
           required: true
         },
@@ -63,18 +77,42 @@ Links to wireframes of your project. Ideally embed them in this README.
         taxes: {
           type: 'string',
           required: true
-          }
+        },
+        location: {
+          type: 'string',
+          required: true
+        }
       },
       
       outcome: {
+        name: {
+          type: 'string',
+          required: true
+        },
+        frequency: {
+          type: 'string',
+          required: true
+        },
+        dueDay: {
+          type: 'string',
+          required: false
+        },
+        dueDate: {
+          type: 'integer',
+          required: false
+        },
+        amount: {
+          type: 'integer'
+          required: true
+        },
+        location: {
+          type: 'string',
+          required: true
+        }
         
       }
       
-      outcome: {
-      
-      }
-      
-      });
+    });
       
 
 ## APIs, Plugins, Libraries and Frameworks
@@ -84,6 +122,8 @@ Jquery
 Lodash
 
 Angular
+
+Kendo
 
 Angular-UI-Router
 
