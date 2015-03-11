@@ -1,6 +1,8 @@
 angular.module('app.controllers', ['app.services'])
 .controller('WelcomeCtrl', function($scope) {
-
+	$scope.onEstimateClick = function() {
+    	alert("Estimate button clicked!");
+  	};
 })
 .controller('WelcomeAnalysisCtrl', function($scope) {
 

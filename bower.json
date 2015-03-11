@@ -1,8 +1,8 @@
 {
-  "name": "sails-template",
+  "name": "Millennial Falcon",
   "version": "0.0.0",
   "authors": [
-    "Aaron Larner <anlarner@gmail.com>"
+    "Hugh Devore <hughdevore@gmail.com>"
   ],
   "license": "MIT",
   "ignore": [
@@ -14,6 +14,10 @@
   ],
   "dependencies": {
     "angular": "~1.3.14",
-    "angular-ui-router": "~0.2.13"
+    "angular-ui-router": "~0.2.13",
+    "jquery": "~2.1.3",
+  },
+  "resolutions": {
+    "jquery": "~2.1.3"
   }
 }
