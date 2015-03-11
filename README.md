@@ -17,101 +17,127 @@ https://trello.com/b/mfrLNLgK/millennial-falcon-final-project
 Links to wireframes of your project. Ideally embed them in this README.
 
 ## Models
-
-    var User = Waterline.Collection.extend({
-      tableName: 'user',
-      
-      adapter: 'postgresql',
-  
-      attributes: {
-        firstName: {
-          type: 'string',
-          required: true
-        },
-        lastName: {
-          type: 'string',
-          required: true
-        },
-        dateOfBirth: {
-          type: 'date',
-          required: true
-        },
-        email: {
-          type: 'string',
-          required: true
-        },
-        password: {
-          type: 'string',
-          required: true
-        },
-        
-        storage: {
-          name: {
-            type: 'string',
-            required: true
-          },
-          balance: {
-            type: 'integer',
-            required: true
-          }
-        },
-        
-        income: {
-          name: {
+    var Storage = Waterline.Collection.extend({
+        attributes: {
+		name: {
+		    type: 'string',
+		    required: true
+		    },
+		balance: {
+		    type: 'integer',
+		    required: true
+		    },
+		user: {
+			model: 'UserProfile'
+		    }
+	    }
+	});
+	
+    var UserProfile = Waterline.Collection.extend({
+        attributes: {
+            user: {
+                model: 'User'
+            },
+            firstName: {
+                type: 'string',
+                required: true
+            },
+            lastName: {
+                type: 'string',
+                required: true
+            },
+            dateOfBirth: {
+                type: 'date',
+                required: true
+            },
+            email: {
+                type: 'string',
+                required: true
+            },
+            password: {
+                type: 'string',
+                required: true
+            },
+            storage: {
+                collection: 'storage',
+                via: 'user'
+            },
+            income: {
+                collection: 'income',
+                via: 'user'
+            },
+            outcome: {
+                collection: 'outcome',
+                via: 'user'
+            }
+	    }
+	});
+    
+    var Income = Waterline.Collection.extend({  
+        attributes: {
+          	name: {
+            	type: 'string',
+                required: true
+                },
+            frequency: {
               type: 'string',
               required: true
-          },
-          frequency: {
-            type: 'string',
-            required: true
-          },
-          hours: {
-            type: 'integer',
-            required: false
-          },
-          weekday: {
-            type: 'string',
-            required: false
-          },
-          amount: {
-            type: 'integer',
-            required: true
-          },
-          taxes: {
-            type: 'string',
-            required: true
-          },
-          location: {
-            type: 'string',
-            required: true
-          }
-        },
-        
-        outcome: {
-          name: {
-            type: 'string',
-            required: true
-          },
-          frequency: {
-            type: 'string',
-            required: true
-          },
-          dueDay: {
-            type: 'string',
-            required: false
-          },
-          dueDate: {
-            type: 'integer',
-            required: false
-          },
-          amount: {
-            type: 'integer'
-            required: true
-          },
-          location: {
-            type: 'string',
-            required: true
-          }
+            },
+            hours: {
+              type: 'integer',
+              required: false
+            },
+            weekday: {
+              type: 'string',
+              required: false
+            },
+            amount: {
+              type: 'integer',
+              required: true
+            },
+            taxes: {
+              type: 'string',
+              required: true
+            },
+            location: {
+              type: 'string',
+              required: true
+            },
+            user: {
+              model: 'UserProfile'
+            }
+        }
+    });
+    
+    var Outcome = Waterline.Collection.extend({   
+        attributes: {
+          	name: {
+                type: 'string',
+                required: true
+                },
+            frequency: {
+                type: 'string',
+                required: true
+            },
+            dueDay: {
+                type: 'string',
+                required: false
+            },
+            dueDate: {
+                type: 'integer',
+                required: false
+            },
+            amount: {
+                type: 'integer',
+                required: true
+            },
+            location: {
+                type: 'string',
+                required: true
+            },
+            user: {
+                model: 'UserProfile'
+            }
         }
     });
       
