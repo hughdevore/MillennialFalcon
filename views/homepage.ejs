@@ -1,8 +1,16 @@
 <!-- Default home page -->
 
 <div class="default-page" ng-app="app">
-    <div id="logo">
-        <h1 id="logo-text">Millennial Falcon</h1>
+    <div id="header">
+		<div id="login-register-link">
+			<a  ui-sref="login">Login/Register</a>
+		</div>
+		<div id="logo-group">
+			<div id="logo-image"></div>
+			<a id="logo-text" ui-sref="welcome">
+				<h1 id="logo-text">Millennial Falcon</h1>
+			</a>
+		</div>
     </div>
     
     <main ui-view></main>

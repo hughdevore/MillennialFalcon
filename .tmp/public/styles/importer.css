@@ -13,5 +13,98 @@
  * always omit, customize, or replace this behavior with SASS, SCSS,
  * or any other Grunt tasks you like.)
  */
+body {
+  font-family: avenir;
+  margin: 0; }
+
+#header {
+  background-color: #B5CEE7;
+  padding: 0em 0em 2em 2em;
+  margin: 0;
+  font-size: 1.25em;
+  text-decoration: none; }
+
+#logo-group {
+  padding-top: 1em; }
+
+#logo-image {
+  height: 112px;
+  width: 112px;
+  background-color: gray;
+  display: inline-block; }
+
+#logo-text {
+  display: inline-block;
+  color: black;
+  text-decoration: none; }
+
+#logo-text:hover {
+  text-decoration: none; }
+
+#login-register-link {
+  text-align: right;
+  padding-right: 1em;
+  padding-top: 0.5em;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: orange; }
+
+#body {
+  margin: 5%;
+  text-align: center; }
+
+#header-text {
+  margin: 2em 0; }
+
+#welcome-query {
+  width: 100%; }
+
+#welcome-input {
+  display: inline-block;
+  margin-right: 1em; }
+
+#input {
+  font-size: 14px;
+  width: 250px;
+  text-align: center;
+  padding: 0.5em; }
+
+#welcome-button {
+  display: inline-block; }
+
+#welcome-analysis {
+  margin: 5%; }
+
+#menu-text {
+  padding: 2em 1em;
+  text-align: center; }
+
+#analysis-year {
+  width: 125px;
+  text-align: center; }
+
+#analysis-input {
+  padding: 1em 0 2em 0;
+  margin: 0 auto;
+  text-align: center; }
+
+.analysis-output-btn {
+  margin: 1em 1em 2em 1em;
+  width: 200px;
+  text-align: center; }
+
+.analysis-table {
+  margin: 3em 0 2em 0; }
+
+.table-header {
+  text-align: center; }
+
+.table-data {
+  text-align: center; }
+
+#footer {
+  background-color: #D99058;
+  font-size: 0.75em;
+  padding: 2em; }
 
 /*# sourceMappingURL=importer.css.map */
