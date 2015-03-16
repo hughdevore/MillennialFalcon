@@ -7,6 +7,10 @@ angular.module('app.controllers', ['app.services'])
   	};
 })
 .controller('WelcomeAnalysisCtrl', function($scope, $stateParams) {
+	$scope.analysisYear = 1;
+	$scope.growth = 0;
+	$scope.modalContent = true;
+	
 	//Benchmark Millennial average user parameters:
 	
 	//cite: "https://www.whitehouse.gov/sites/default/files/docs/millennials_report.pdf"
@@ -23,12 +27,11 @@ angular.module('app.controllers', ['app.services'])
 
 	var value = parseInt($stateParams.estimateValue);
 
-	$scope.analysisYear = 1;
 	$scope.analysisTable = true;
 	$scope.analysisGraph= true;
 
-	$scope.onViewClick = function () {
-
+	$scope.onModalClick = function () {
+		$scope.modalContent = !$scope.modalContent;
 	}
 
 	$scope.onTableClick = function() {
@@ -40,54 +43,93 @@ angular.module('app.controllers', ['app.services'])
 		$scope.analysisTable = false;
 		$scope.analysisGraph= false;
 	}
+ 
+
 
 	$scope.stocks = function() {
 
-		// $scope.startingValue();
-		// $scope.gainLoss();
+		$scope.analysisYear = parseInt($scope.analysisYear);
 
-		var year = parseInt($scope.analysisYear);
+		$scope.stockEndValueCalc = value;
+		$scope.stockStartValueCalc = value; 
+		$scope.growthCalc = 0;
+		$scope.capitalGainsCalc = 0;
+			
+		// This is for calculating year over year
+		for(var i = 1; i <= $scope.analysisYear; i++) {
+			console.log(i);
 
-		$scope.startingValue = function() {
-			// this will multiply the analysis value by
-			// the welcome page input
+			$scope.stockStartValueCalc = $scope.stockEndValueCalc;
+			console.log($scope.stockStartValueCalc);
+			$scope.stockStartValue = parseInt($scope.stockStartValueCalc).toLocaleString('en-US');
 
-			$scope.startStocks = value;
+			$scope.growthCalc = $scope.stockStartValueCalc * growthRate;
+			$scope.growth = $scope.growthCalc.toLocaleString('en-US');
 
-			for(var i = 1; i <= year; i++) {
-				console.log(i);
-				growth = $scope.startStocks*growthRate;
-				console.log(growth);
-				$scope.startStocks = ($scope.startStocks + growth);
-				console.log($scope.startStocks);
+			if(year = 1) {
+				$scope.capitalGainsCalc = $scope.growthCalc * shortTermCapGains;
+			} else {
+				$scope.capitalGainsCalc = $scope.growthCalc * longTermCapGains;
 			}
 
-			$scope.startingStocks = $scope.startStocks - growth;
-		}();
+			$scope.capitalGains = $scope.capitalGainsCalc.toLocaleString('en-US');
 
-		$scope.gainLoss = function() {
+			$scope.stockEndValueCalc = $scope.stockStartValueCalc + $scope.growthCalc - $scope.capitalGainsCalc;
+			console.log($scope.stockEndValueCalc);
+			$scope.stockEndValue = $scope.stockEndValueCalc.toLocaleString('en-US');
+		}
+
+		$scope.update = function() {
+			$scope.stockStartValueCalc = value;
+			$scope.stockEndValueCalc = value;
+
+			for(var i = 1; i <= $scope.analysisYear; i++) {
+				console.log(i);
+
+				$scope.stockStartValueCalc = $scope.stockEndValueCalc;
+				console.log($scope.stockStartValueCalc);
+				$scope.stockStartValue = parseInt($scope.stockStartValueCalc).toLocaleString('en-US');
+
+				$scope.growthCalc = $scope.stockStartValueCalc * growthRate;
+				$scope.growth = parseInt($scope.growthCalc).toLocaleString('en-US');
+
+				if(year = 1) {
+					$scope.capitalGainsCalc = $scope.growthCalc * shortTermCapGains;
+				} else {
+					$scope.capitalGainsCalc = $scope.growthCalc * longTermCapGains;
+				}
+
+				$scope.capitalGains = parseInt($scope.capitalGainsCalc).toLocaleString('en-US');
+
+				$scope.stockEndValueCalc = $scope.stockStartValueCalc + $scope.growthCalc - $scope.capitalGainsCalc;
+				console.log($scope.stockEndValueCalc);
+				$scope.stockEndValue = parseInt($scope.stockEndValueCalc).toLocaleString('en-US');
+			}
+
+		}
+
+		$scope.startingValue = function() {
+			// this will calculate the starting value at year 1			
+
+		};
+
+		$scope.gainLossValue = function() {
 			// this will multiply the start value by
 			// the rate of return
-			$scope.growth = $scope.startingStocks*growthRate;
 
-		}();
+		};
 
-		$scope.capitalGainsTax = function () {
+		$scope.capitalGainsTaxValue = function () {
 			//this will mutiply the gain/loss by the 28%
 			//capital gains rate if analysis year < 1 year.
 			//otherwise, will multiply by 15%
-			if(year = 1) {
-				$scope.capitalGains = $scope.growth*shortTermCapGains;
-			} else {
-				$scope.capitalGains = $scope.growth*longTermCapGains;
-			}
-		}();
+			
+		};
 
 		$scope.endingValue = function() {
-			//this will take the starting value and add the
-			//gain/loss and then subtract the taxes
-			$scope.ending = $scope.startStocks - $scope.capitalGains;
-		}();
+			//this will calculate the ending value for year 1
+
+		};
 	}();
 })
 .controller('LoginCtrl', function($scope) {

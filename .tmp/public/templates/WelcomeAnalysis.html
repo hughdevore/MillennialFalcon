@@ -1,31 +1,42 @@
 <section id="welcome-analysis" ng-controller="WelcomeAnalysisCtrl">
 	<div id="analysis-menu">
 		<div id="millennials">
-			<span class="caret"></span>
+			<h2>The Average Millennial</div></h2>
+			
 		</div>
 			
 		<div>
-			<h2 id="menu-text">What year would you like to estimate?</h2>
+		<hr>
+			<h2 id="menu-text">Select a Year</h2>
 		</div>
 		<div class="input-group" id="analysis-input">
-		  <span class="input-group-addon" id="basic-addon1">Year</span>
-		  <input ng-model="analysisYear" id="analysis-year" type="text" class="form-control" placeholder="Year for Estimation" aria-describedby="basic-addon1">
-		  <button type="submit" ng-click="stocks()">View</button>
+			<div class="input-group-addon" id="basic-addon1">Year</div>
+			<input ng-change="update()" ng-model="analysisYear" id="analysis-year" type="text" class="form-control" placeholder="Year for Estimation" aria-describedby="basic-addon1">
 		</div>
+		<hr>
+
 		<div id="analysis-output">
-			<div id="analysis-graph-button">
-				<button type="button" class="btn btn-primary btn-lg analysis-output-btn" ng-click="onTableClick()">Table</button>
-			</div>
-			<div id="analysis-table-button">
-				<button type="button" class="btn btn-primary btn-lg analysis-output-btn" ng-click="onGraphClick()">Graph</button>
-			</div>
+			<h3> Visualize the Estimated Data</h3>
+			<button type="button" class="btn btn-primary btn-lg analysis-output-btn" ng-click="onTableClick()">Table</button>
+			<button type="button" class="btn btn-primary btn-lg analysis-output-btn" ng-click="onGraphClick()">Graph</button>
 		</div>
+		<hr>
 	</div>
 
 	<div id="analysis-tables">
 		<div id="stocks" class="panel panel-default analysis-table" ng-show="analysisTable">
 		  <!-- Default panel contents -->
-		  <div class="panel-heading">Stocks</div>
+		  <div class="panel-heading">
+		  	<section class="storage-modal">
+		  		<a class="storage-modal-header" ng-click="onModalClick()">Stocks</a>
+				<div class="content" ng-hide="modalContent">
+	                <div><strong>Overview:</strong></div>
+	                <p class="text"><small>This is a synopsis of stocks.</small></p>
+	                <div><strong>Taxes:</strong></div>
+	                <p class="text"><small>This is a synopsis of the tax ramifications on stocks.</small></p>
+				</div>
+			</section>
+		  </div>
 
 		  <!-- Table -->
 		  <table class="table">
@@ -36,10 +47,10 @@
 		    <th class="table-header">End of Year</th>
 		    <tr>
 		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
-		    	<td class="table-data">{{ startingStocks }}</td>
+		    	<td class="table-data">{{ stockStartValue }}</td>
 		    	<td class="table-data">{{ growth }}</td>
 		    	<td class="table-data">{{ capitalGains }}</td>
-		    	<td class="table-data">{{ ending }}</td>
+		    	<td class="table-data">{{ stockEndValue }}</td>
 		    </tr>
 		  </table>
 		</div>
@@ -50,7 +61,18 @@
 
 		  <!-- Table -->
 		  <table class="table">
-		    ...
+		    <th class="table-header">Year</th>
+		    <th class="table-header">Start of Year</th>
+		    <th class="table-header">Gain/Loss</th>
+		    <th class="table-header">Taxes</th>
+		    <th class="table-header">End of Year</th>
+		    <tr>
+		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
+		    	<td class="table-data">{{ stockStartValue }}</td>
+		    	<td class="table-data">{{ growth }}</td>
+		    	<td class="table-data">{{ capitalGains }}</td>
+		    	<td class="table-data">{{ stockEndValue }}</td>
+		    </tr>
 		  </table>
 		</div>
 
@@ -60,7 +82,19 @@
 
 		  <!-- Table -->
 		  <table class="table">
-		    ...
+		    <th class="table-header">Year</th>
+		    <th class="table-header">Start of Year</th>
+		    <th class="table-header">Gain/Loss</th>
+		    <th class="table-header">Taxes</th>
+		    <th class="table-header">End of Year</th>
+		    <tr>
+		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
+		    	<td class="table-data">{{ stockStartValue }}</td>
+		    	<td class="table-data">{{ growth }}</td>
+		    	<td class="table-data">{{ capitalGains }}</td>
+		    	<td class="table-data">{{ stockEndValue }}</td>
+		    </tr>
+		  </table>
 		  </table>
 		</div>
 
@@ -70,7 +104,18 @@
 
 		  <!-- Table -->
 		  <table class="table">
-		    ...
+		    <th class="table-header">Year</th>
+		    <th class="table-header">Start of Year</th>
+		    <th class="table-header">Gain/Loss</th>
+		    <th class="table-header">Taxes</th>
+		    <th class="table-header">End of Year</th>
+		    <tr>
+		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
+		    	<td class="table-data">{{ stockStartValue }}</td>
+		    	<td class="table-data">{{ growth }}</td>
+		    	<td class="table-data">{{ capitalGains }}</td>
+		    	<td class="table-data">{{ stockEndValue }}</td>
+		    </tr>
 		  </table>
 		</div>
 
@@ -80,7 +125,18 @@
 
 		  <!-- Table -->
 		  <table class="table">
-		    ...
+		    <th class="table-header">Year</th>
+		    <th class="table-header">Start of Year</th>
+		    <th class="table-header">Gain/Loss</th>
+		    <th class="table-header">Taxes</th>
+		    <th class="table-header">End of Year</th>
+		    <tr>
+		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
+		    	<td class="table-data">{{ stockStartValue }}</td>
+		    	<td class="table-data">{{ growth }}</td>
+		    	<td class="table-data">{{ capitalGains }}</td>
+		    	<td class="table-data">{{ stockEndValue }}</td>
+		    </tr>
 		  </table>
 		</div>
 
@@ -90,7 +146,19 @@
 
 		  <!-- Table -->
 		  <table class="table">
-		    ...
+		    <th class="table-header">Year</th>
+		    <th class="table-header">Start of Year</th>
+		    <th class="table-header">Gain/Loss</th>
+		    <th class="table-header">Taxes</th>
+		    <th class="table-header">End of Year</th>
+		    <tr>
+		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
+		    	<td class="table-data">{{ stockStartValue }}</td>
+		    	<td class="table-data">{{ growth }}</td>
+		    	<td class="table-data">{{ capitalGains }}</td>
+		    	<td class="table-data">{{ stockEndValue }}</td>
+		    </tr>
+		  </table>
 		  </table>
 		</div>
 
@@ -100,7 +168,18 @@
 
 		  <!-- Table -->
 		  <table class="table">
-		    ...
+		    <th class="table-header">Year</th>
+		    <th class="table-header">Start of Year</th>
+		    <th class="table-header">Gain/Loss</th>
+		    <th class="table-header">Taxes</th>
+		    <th class="table-header">End of Year</th>
+		    <tr>
+		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
+		    	<td class="table-data">{{ stockStartValue }}</td>
+		    	<td class="table-data">{{ growth }}</td>
+		    	<td class="table-data">{{ capitalGains }}</td>
+		    	<td class="table-data">{{ stockEndValue }}</td>
+		    </tr>
 		  </table>
 		</div>
 
@@ -110,7 +189,18 @@
 
 		  <!-- Table -->
 		  <table class="table">
-		    ...
+		    <th class="table-header">Year</th>
+		    <th class="table-header">Start of Year</th>
+		    <th class="table-header">Gain/Loss</th>
+		    <th class="table-header">Taxes</th>
+		    <th class="table-header">End of Year</th>
+		    <tr>
+		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
+		    	<td class="table-data">{{ stockStartValue }}</td>
+		    	<td class="table-data">{{ growth }}</td>
+		    	<td class="table-data">{{ capitalGains }}</td>
+		    	<td class="table-data">{{ stockEndValue }}</td>
+		    </tr>
 		  </table>
 		</div>
 	</div>
