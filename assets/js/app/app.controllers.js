@@ -9,7 +9,33 @@ angular.module('app.controllers', ['app.services'])
 .controller('WelcomeAnalysisCtrl', function($scope, $stateParams) {
 	$scope.analysisYear = 1;
 	$scope.growth = 0;
-	$scope.modalContent = true;
+	$scope.revealedContent = true;
+
+	$scope.analysisTable = true;
+	$scope.analysisGraph= true;
+
+	var value = parseInt($stateParams.estimateValue);
+
+	$scope.onTableClick = function() {
+		$scope.analysisTable = true;
+		$scope.analysisGraph= true;
+	};
+
+	$scope.onGraphClick = function() {
+		$scope.analysisTable = false;
+		$scope.analysisGraph= false;
+	};
+
+	$scope.modals = {
+		stocks: false,
+		savings: false,
+		fourk: false,
+		rothfourk: false,
+		ira: false,
+		rothira: false,
+		ul: false,
+		uldynasty: false
+	};
 	
 	//Benchmark Millennial average user parameters:
 	
@@ -18,34 +44,16 @@ angular.module('app.controllers', ['app.services'])
 		//  (associates, bachelor’s, or graduate degree)
 
 	// Benchmark user(single):
+
 	var income = 40000;
 	var baseTax = 5156.25;
-	var incomeTaxRate = .25;
-	var shortTermCapGains = .25;
-	var longTermCapGains = .15;
-	var growthRate = .055;
+	var incomeTaxRate = 0.25;
+	var shortTermCapGains = 0.25;
+	var longTermCapGains = 0.15;
+	var growthRate = 0.055;
+	var savingsGrowthRate = 0.01;
 
-	var value = parseInt($stateParams.estimateValue);
-
-	$scope.analysisTable = true;
-	$scope.analysisGraph= true;
-
-	$scope.onModalClick = function () {
-		$scope.modalContent = !$scope.modalContent;
-	}
-
-	$scope.onTableClick = function() {
-		$scope.analysisTable = true;
-		$scope.analysisGraph= true;
-	}
-
-	$scope.onGraphClick = function() {
-		$scope.analysisTable = false;
-		$scope.analysisGraph= false;
-	}
  
-
-
 	$scope.stocks = function() {
 
 		$scope.analysisYear = parseInt($scope.analysisYear);
@@ -57,26 +65,23 @@ angular.module('app.controllers', ['app.services'])
 			
 		// This is for calculating year over year
 		for(var i = 1; i <= $scope.analysisYear; i++) {
-			console.log(i);
 
 			$scope.stockStartValueCalc = $scope.stockEndValueCalc;
-			console.log($scope.stockStartValueCalc);
 			$scope.stockStartValue = parseInt($scope.stockStartValueCalc).toLocaleString('en-US');
 
 			$scope.growthCalc = $scope.stockStartValueCalc * growthRate;
-			$scope.growth = $scope.growthCalc.toLocaleString('en-US');
+			$scope.growth = parseInt($scope.growthCalc).toLocaleString('en-US');
 
-			if(year = 1) {
+			if(year === 1) {
 				$scope.capitalGainsCalc = $scope.growthCalc * shortTermCapGains;
 			} else {
 				$scope.capitalGainsCalc = $scope.growthCalc * longTermCapGains;
 			}
 
-			$scope.capitalGains = $scope.capitalGainsCalc.toLocaleString('en-US');
+			$scope.capitalGains = parseInt($scope.capitalGainsCalc).toLocaleString('en-US');
 
 			$scope.stockEndValueCalc = $scope.stockStartValueCalc + $scope.growthCalc - $scope.capitalGainsCalc;
-			console.log($scope.stockEndValueCalc);
-			$scope.stockEndValue = $scope.stockEndValueCalc.toLocaleString('en-US');
+			$scope.stockEndValue = parseInt($scope.stockEndValueCalc).toLocaleString('en-US');
 		}
 
 		$scope.update = function() {
@@ -84,16 +89,14 @@ angular.module('app.controllers', ['app.services'])
 			$scope.stockEndValueCalc = value;
 
 			for(var i = 1; i <= $scope.analysisYear; i++) {
-				console.log(i);
 
 				$scope.stockStartValueCalc = $scope.stockEndValueCalc;
-				console.log($scope.stockStartValueCalc);
 				$scope.stockStartValue = parseInt($scope.stockStartValueCalc).toLocaleString('en-US');
 
 				$scope.growthCalc = $scope.stockStartValueCalc * growthRate;
 				$scope.growth = parseInt($scope.growthCalc).toLocaleString('en-US');
 
-				if(year = 1) {
+				if(year === 1) {
 					$scope.capitalGainsCalc = $scope.growthCalc * shortTermCapGains;
 				} else {
 					$scope.capitalGainsCalc = $scope.growthCalc * longTermCapGains;
@@ -102,44 +105,191 @@ angular.module('app.controllers', ['app.services'])
 				$scope.capitalGains = parseInt($scope.capitalGainsCalc).toLocaleString('en-US');
 
 				$scope.stockEndValueCalc = $scope.stockStartValueCalc + $scope.growthCalc - $scope.capitalGainsCalc;
-				console.log($scope.stockEndValueCalc);
 				$scope.stockEndValue = parseInt($scope.stockEndValueCalc).toLocaleString('en-US');
 			}
 
+		};
+
+		
+	}();
+	$scope.savings = function() {
+
+		$scope.savingsEndValueCalc = value;
+		$scope.savingsStartValueCalc = value; 
+		$scope.growthCalc = 0;
+		$scope.capitalGainsCalc = 0;
+			
+		// This is for calculating year over year
+		for(var i = 1; i <= $scope.analysisYear; i++) {
+
+			$scope.savingsStartValueCalc = $scope.savingsEndValueCalc;
+			$scope.savingsStartValue = parseInt($scope.savingsStartValueCalc).toLocaleString('en-US');
+
+			$scope.savingsGrowthCalc = $scope.savingsStartValueCalc * savingsGrowthRate;
+			$scope.savingsGrowth = parseInt($scope.savingsGrowthCalc).toLocaleString('en-US');
+
+			$scope.incomeTaxCalc = $scope.savingsGrowthCalc * incomeTaxRate;
+
+
+			$scope.incomeTax = parseInt($scope.incomeTaxCalc).toLocaleString('en-US');
+
+			$scope.savingsEndValueCalc = $scope.savingsStartValueCalc + $scope.savingsGrowthCalc - $scope.incomeTaxCalc;
+			$scope.savingsEndValue = parseInt($scope.savingsEndValueCalc).toLocaleString('en-US');
 		}
 
-		$scope.startingValue = function() {
-			// this will calculate the starting value at year 1			
+		$scope.savingsUpdate = function() {
+			$scope.savingsStartValueCalc = value;
+			$scope.savingsEndValueCalc = value;
 
-		};
+			for(var i = 1; i <= $scope.analysisYear; i++) {
 
-		$scope.gainLossValue = function() {
-			// this will multiply the start value by
-			// the rate of return
+				$scope.savingsStartValueCalc = $scope.savingsEndValueCalc;
+			$scope.savingsStartValue = parseInt($scope.savingsStartValueCalc).toLocaleString('en-US');
 
-		};
+			$scope.savingsGrowthCalc = $scope.savingsStartValueCalc * savingsGrowthRate;
+			$scope.savingsGrowth = parseInt($scope.savingsGrowthCalc).toLocaleString('en-US');
 
-		$scope.capitalGainsTaxValue = function () {
-			//this will mutiply the gain/loss by the 28%
-			//capital gains rate if analysis year < 1 year.
-			//otherwise, will multiply by 15%
-			
-		};
+			$scope.incomeTaxCalc = $scope.savingsGrowthCalc * incomeTaxRate;
 
-		$scope.endingValue = function() {
-			//this will calculate the ending value for year 1
 
-		};
+			$scope.incomeTax = parseInt($scope.incomeTaxCalc).toLocaleString('en-US');
+
+			$scope.savingsEndValueCalc = $scope.savingsStartValueCalc + $scope.savingsGrowthCalc - $scope.incomeTaxCalc;
+			$scope.savingsEndValue = parseInt($scope.savingsEndValueCalc).toLocaleString('en-US');
+			}
+
+		}
 	}();
 })
-.controller('LoginCtrl', function($scope) {
+.controller('RegisterCtrl', function($scope, $state, $http, Validate) {
+	$scope.error = {
+		identifier: '',
+		password: '',
+		generic: []
+	};
+	$scope.credentials = {
+		identifier: '',
+		password: ''
+	};
+	$scope.errorProfile = {
+		firstName: '',
+		lastName: '',
+		dateOfBirth: '',
+		mobilePhone: '',
+		generic: []
+	};
+	$scope.userProfile = {
+		firstName: '',
+		lastName: '',
+		dateOfBirth: '',
+		mobilePhone: '',
+	};
 
+	$scope.register = function(credentials) {
+		$scope.error = Validate.credentials(credentials);
+
+		if(!Validate.hasError($scope.error)) {
+			var registerObj = {
+				username: credentials.identifier,
+				email: credentials.identifier,
+				password: credentials.password
+			};
+			console.log(registerObj);
+			
+			$http.post('/auth/local/register', registerObj)
+			.success(function(res) {
+				console.log('Success!');
+				console.log(res);
+
+				if(res.success){
+					$state.go('login');
+				} else {
+					$scope.error.generic = res.errors;
+				}
+				console.log($scope.error);
+			})
+			.error(function(err){
+				console.log('ERROR!!!');
+				console.log(err);
+			});
+		}
+	};
+
+	$scope.create = function(userProfile) {
+		$scope.errorProfile = Validate.userProfile(userProfile);
+
+		if(!Validate.hasError($scope.errorProfile)) {
+			console.log('User Created!');
+
+			var data = {
+				firstName: userProfile.firstName,
+				lastName: userProfile.lastName,
+				dateOfBirth: userProfile.dateOfBirth.format('YYYY-MM-DD HH:mm:ss'),
+				mobilePhone: userProfile.mobilePhone,
+			};
+
+			$http.post('/userData', data)
+			.success(function(newUserProfile) {
+				console.log(newUserProfile);
+			})
+			.error(function(err){
+				console.log(err);
+			});
+			console.log(data);
+		}
+	};
+
+	$scope.submit = function(credentials, userProfile) {
+		$scope.register(credentials);
+		$scope.create(userProfile);
+	};
 })
-.controller('RegisterCtrl', function($scope) {
+.controller('LoginCtrl', function($scope, $state, $http, Validate) {
+	$scope.error = {
+		identifier: '',
+		password: '',
+		generic: []
+	};
+	$scope.credentials = {
+		identifier: '',
+		password: ''
+	};
 
+	$scope.login = function(htmlCredentials) {
+		$scope.error = Validate.credentials(htmlCredentials);
+
+		if(!Validate.hasError($scope.error)) {
+			$http.post('/auth/local', htmlCredentials)
+			.success(function(res) {
+				console.log('Success!');
+				console.log(res);
+
+				if(res.success){
+					$state.go('dashboard');
+				} else {
+					$scope.error.generic = res.errors;
+				}
+				console.log($scope.error);
+			})
+			.error(function(err){
+				console.log('ERROR!!!');
+				console.log(err);
+			});
+		}
+	};
+})
+.controller('NavCtrl', function($scope, $http, $state) {
+	$scope.logout = function() {
+		$http.get('/logout');
+		$state.go('login');
+	};
 })
 .controller('UserDataCtrl', function($scope) {
-
+	$scope.modals = {
+		storage: false,
+		income: false,
+		outcome: false
+	};
 })
 .controller('UserDashboardCtrl', function($scope) {
 

@@ -1,7 +1,7 @@
 /**
 * UserProfile.js
 *
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
+* @description :: TODO: This is for the user information not covered nby the login.
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
@@ -21,6 +21,10 @@ module.exports = {
 		},
 		dateOfBirth: {
 		  type: 'date',
+		  required: true
+		},
+		mobilePhone: {
+		  type: 'string',
 		  required: true
 		},
 		email: {

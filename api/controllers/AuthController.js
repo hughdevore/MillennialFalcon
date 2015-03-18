@@ -70,7 +70,7 @@ var AuthController = {
   logout: function (req, res) {
     req.logout();
     if(req.wantsJSON) {
-      res.jsonx({success: true});
+      res.jsonx({success: true, errors: []});
     }
     else {
       res.redirect('/');

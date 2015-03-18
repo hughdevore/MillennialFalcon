@@ -1,1 +1,44 @@
-User - Data
+<section id="user-data-container" ng-controller="UserDataCtrl">
+	<h2>Your Falcon</h2>
+	
+	<section id ="storage" class="panel panel-default analysis-table">
+		  <!-- Default panel contents -->
+		<div class="panel-heading">
+		  	<section class="storage-modal">
+		  		<a class="storage-modal-header" ng-click="modals.storage = !modals.storage">1. Add Info about your Nest
+			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.storage"></span>
+			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.storage"></span>
+		  		</a>
+		  		
+				<div class="content" ng-show="modals.storage">
+	                <div><strong>Storage:</strong></div>
+	                <p class="text"><small>Where does your falcon keep it's eggs safe? Do you have a checking, savings or retirement account?</small></p>
+				</div>
+			</section>
+		</div>
+		<div>
+			<table class="table">
+			    <th class="table-header">Income Storage</th>
+			    <th class="table-header">Balance</th>
+			    <th class="table-header">Remove</th>
+			    <tr>
+			    	<td class="table-data"><strong>storageName</strong></td>
+			    	<td class="table-data">storageBalance </td>
+			    	<td class="remove"></td>
+			    </tr>
+			  </table>
+		</div>
+		<form class="form" ng-submit="" novalidate>
+			<div class="form-group">
+				<label for="storageName">Storage Name</label>
+				<input type="text" class="form-control" id="storage-name" placeholder="enter an account name" ng-model="storage.name">
+				<p class="error" ng-bind="error.storageName"></p>
+			</div>
+			<div class="form-group">
+				<label for="balance">Balance</label>
+				<input type="text" class="form-control" id="balance" placeholder="enter the account balance" ng-model="storage.balance">
+				<p class="error" ng-bind="error.storageBalance"></p>
+			</div>
+		</form>
+	</section>
+</section>

@@ -120,10 +120,24 @@ body {
   color: black;
   font-size: 1.5em; }
 
+.storage-modal-header:hover {
+  color: #D99058;
+  underline: none;
+  text-decoration: none; }
+
+.closed {
+  display: none; }
+
+.open {
+  display: inline-block; }
+
+.glyphicon {
+  font-size: 0.5em; }
+
 .content {
   background-color: white;
   padding: 0.5em;
-  border-top: 1px solid gray; }
+  border-top: 1px solid #EEEEEE; }
 
 .panel-heading {
   background-color: #B5CEE7; }
@@ -141,5 +155,17 @@ body {
   background-color: #D99058;
   font-size: 0.75em;
   padding: 2em; }
+
+#login-container {
+  margin: 5%; }
+
+#login-form {
+  margin: 3% 15%; }
+
+#register-container {
+  margin: 5%; }
+
+#register-form {
+  margin: 3% 15%; }
 
 /*# sourceMappingURL=importer.css.map */

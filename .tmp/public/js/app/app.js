@@ -13,12 +13,12 @@ angular.module('app',['app.controllers', 'ui.router'])
 		controller: 'WelcomeAnalysisCtrl'
 	})
 	.state('login', {
-		url: '/login',
+		url: '/user/login',
 		templateUrl: 'templates/Login.html',
 		controller: 'LoginCtrl'
 	})
 	.state('register', {
-		url: '/register',
+		url: '/user/register',
 		templateUrl: 'templates/Register.html',
 		controller: 'RegisterCtrl'
 	})
