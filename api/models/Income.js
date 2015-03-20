@@ -20,8 +20,12 @@ module.exports = {
       type: 'integer',
       required: false
     },
-    weekday: {
+    dueDay: {
       type: 'string',
+      required: false
+    },
+    dueDate: {
+      type: 'integer',
       required: false
     },
     amount: {

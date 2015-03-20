@@ -1,11 +1,14 @@
 <!-- Default home page -->
 
 <div class="default-page" ng-app="app">
-    <div id="header">
-		<div id="login-register-link">
-			<a class="login" ui-sref="login">login </a>
-			<div class="login"> | </div>
-			<a class="login" ui-sref="register"> register</a>
+    <header ng-controller="NavigationCtrl">
+		<div id="login-register-link" ng-show="logged">
+			<a class="login ng-cloak" ui-sref="login" ng-cloak>login </a>
+			<div class="login ng-cloak" ng-cloak> | </div>
+			<a class="login ng-cloak" ui-sref="register" ng-cloak> register</a>
+		</div>
+		<div id="logout-register-link" ng-hide="logged">
+			<a class="login ng-cloak" ng-click="logout()" ng-cloak>logout </a>
 		</div>
 		<div id="logo-group">
 			<div id="logo-image"></div>
@@ -13,7 +16,7 @@
 				<h1 id="logo-text">Millennial Falcon</h1>
 			</a>
 		</div>
-    </div>
+    </header>
     
     <main ui-view></main>
 </div>

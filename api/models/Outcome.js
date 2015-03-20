@@ -24,6 +24,14 @@ module.exports = {
       type: 'integer',
       required: false
     },
+    months: {
+      type: 'string',
+      required: false
+    },
+    interest: {
+      type: 'string',
+      required: false
+    },
     amount: {
       type: 'integer',
       required: true

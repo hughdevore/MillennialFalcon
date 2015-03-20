@@ -1,44 +1,185 @@
 <section id="user-data-container" ng-controller="UserDataCtrl">
-	<h2>Your Falcon</h2>
+	<h2>YOUR FALCON</h2>
 	
 	<section id ="storage" class="panel panel-default analysis-table">
 		  <!-- Default panel contents -->
 		<div class="panel-heading">
 		  	<section class="storage-modal">
-		  		<a class="storage-modal-header" ng-click="modals.storage = !modals.storage">1. Add Info about your Nest
+		  		<a class="storage-modal-header" ng-click="modals.storage = !modals.storage">INCOME STORAGE DATA
 			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.storage"></span>
 			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.storage"></span>
 		  		</a>
 		  		
 				<div class="content" ng-show="modals.storage">
 	                <div><strong>Storage:</strong></div>
-	                <p class="text"><small>Where does your falcon keep it's eggs safe? Do you have a checking, savings or retirement account?</small></p>
+	                <p class="text"><small>Where does your falcon keep it's eggs safe? Do you have a checking, savings or retirement account? Add each one individually and we'll use them for your financial map.  </small></p>
 				</div>
 			</section>
 		</div>
 		<div>
-			<table class="table">
-			    <th class="table-header">Income Storage</th>
-			    <th class="table-header">Balance</th>
-			    <th class="table-header">Remove</th>
-			    <tr>
-			    	<td class="table-data"><strong>storageName</strong></td>
-			    	<td class="table-data">storageBalance </td>
-			    	<td class="remove"></td>
+			<table class="table-user">
+			    <tr class="row-user">
+				    <th class="table-header">Storage</th>
+				    <th class="table-header">Balance</th>
+				    <th class="table-header">Remove</th>
+				</tr>
+			    <tr class="row-user" ng-repeat="(store, info) in stores">
+			    	<td class="table-data">{{ info.name }}</td>
+			    	<td class="table-data">{{ info.balance }}</td>
+			    	<td class="remove"><span class="glyphicon glyphicon-remove-circle"></span></td>
 			    </tr>
 			  </table>
 		</div>
-		<form class="form" ng-submit="" novalidate>
+		<form class="form" ng-submit="storageSubmit(storage)">
 			<div class="form-group">
 				<label for="storageName">Storage Name</label>
-				<input type="text" class="form-control" id="storage-name" placeholder="enter an account name" ng-model="storage.name">
-				<p class="error" ng-bind="error.storageName"></p>
+				<input type="text" class="form-control" id="storage-name" placeholder="add account name" ng-model="storage.name" required>
 			</div>
 			<div class="form-group">
 				<label for="balance">Balance</label>
-				<input type="text" class="form-control" id="balance" placeholder="enter the account balance" ng-model="storage.balance">
-				<p class="error" ng-bind="error.storageBalance"></p>
+				<input type="text" class="form-control" id="balance" placeholder="add account balance" ng-model="storage.balance" required>
 			</div>
+			<button type="submit" class="btn btn-default">Add</button>
+		</form>
+	</section>
+
+	<section id ="income" class="panel panel-default analysis-table">
+		  <!-- Default panel contents -->
+		<div class="panel-heading">
+		  	<section class="storage-modal">
+		  		<a class="storage-modal-header" ng-click="modals.income = !modals.income">INCOME DATA
+			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.income"></span>
+			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.income"></span>
+		  		</a>
+		  		
+				<div class="content" ng-show="modals.income">
+	                <div><strong>Storage:</strong></div>
+	                <p class="text"><small>When does your falcon bring in income from the hunt? How often? Add all of the income sources you have and we'll keep track for you. </small></p>
+				</div>
+			</section>
+		</div>
+		<div>
+			<table class="table-user">
+			    <tr class="row-user">
+				    <th class="table-header">Source</th>
+				    <th class="table-header">Frequency</th>
+				    <th class="table-header">Pay Day/Date</th>
+				    <th class="table-header">Amount</th>
+				    <th class="table-header">Storage</th>
+				    <th class="table-header">Remove</th>
+				</tr>
+			    <tr class="row-user" ng-repeat="(income, info) in incomes">
+			    	<td class="table-data">{{ info.name }}</td>
+			    	<td class="table-data">{{ info.frequency }}</td>
+			    	<td class="table-data">{{ info.dueDay }}/{{ info.dueDate }}</td>
+			    	<td class="table-data">{{ info.amount }}</td>
+			    	<td class="table-data">{{ info.location }}</td>
+			    	<td class="remove"><span class="glyphicon glyphicon-remove-circle"></span></td>
+			    </tr>
+			  </table>
+		</div>
+		<form class="form" ng-submit="incomeSubmit(income)">
+			<div class="form-group">
+				<label for="incomeName">Name</label>
+				<input type="text" class="form-control" id="income-name" placeholder="add income name" ng-model="income.name" required>
+			</div>
+			<div class="form-group">
+				<label for="incomeFrequency">Schedule</label>
+				<input type="text" class="form-control" id="income-schedule" placeholder="Weekly" ng-model="income.frequency" required>
+			</div>
+			<div class="form-group">
+				<label for="incomeDueDay">Weekday</label>
+				<input type="text" class="form-control" id="income-due-day" placeholder="Friday" ng-model="income.dueDay" required>
+			</div>
+			<div class="form-group">
+				<label for="incomeDueDate">Date</label>
+				<input type="text" class="form-control" id="income-due-date" placeholder="25" ng-model="income.dueDate" required>
+			</div>
+			<div class="form-group">
+				<label for="incomeAmount">Amount</label>
+				<input type="text" class="form-control" id="income-amount" placeholder="$3,275.57" ng-model="income.amount" required>
+			</div>
+			<div class="form-group">
+				<label for="incomeTaxes">Taxes</label>
+				<input type="text" class="form-control" id="income-taxes" placeholder="Before Tax" ng-model="income.taxes" required>
+			</div>
+			<div class="form-group">
+				<label for="incomeLocation">Storage</label>
+				<input type="text" class="form-control" id="income-amount" placeholder="Checking" ng-model="income.location" required>
+			</div>
+			<button type="submit" class="btn btn-default">Add</button>
+		</form>
+	</section>
+	
+	<section id ="outcome" class="panel panel-default analysis-table">
+		  <!-- Default panel contents -->
+		<div class="panel-heading">
+		  	<section class="storage-modal">
+		  		<a class="storage-modal-header" ng-click="modals.outcome = !modals.outcome">OUTCOME DATA
+			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.outcome"></span>
+			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.outcome"></span>
+		  		</a>
+		  		
+				<div class="content" ng-show="modals.outcome">
+	                <div><strong>Outcome:</strong></div>
+	                <p class="text"><small>When do you pay your bills? Your credit cards? Your mortage? How about those never-ending student loans? Add the data for your outcome, afterall it's definitely not  income. </small></p>
+				</div>
+			</section>
+		</div>
+		<div>
+			<table class="table-user">
+			    <tr class="row-user">
+				    <th class="table-header">Outcome</th>
+				    <th class="table-header">Frequency</th>
+				    <th class="table-header">Due Day/Date</th>
+				    <th class="table-header">Amount</th>
+				    <th class="table-header">Storage</th>
+				    <th class="table-header">Remove</th>
+				</tr>
+			    <tr class="row-user" ng-repeat="(outcome, info) in outcomes">
+			    	<td class="table-data">{{ info.name }}</td>
+			    	<td class="table-data">{{ info.frequency }}</td>
+			    	<td class="table-data">{{ info.dueDay }} / {{ info.dueDate }}</td>
+			    	<td class="table-data">{{ info.amount }}</td>
+			    	<td class="table-data">{{ info.location }}</td>
+			    	<td class="remove"><span class="glyphicon glyphicon-remove-circle"></span></td>
+			    </tr>
+			  </table>
+		</div>
+		<form class="form" ng-submit="outcomeSubmit(outcome)">
+			<div class="form-group">
+				<label for="incomeName">Name</label>
+				<input type="text" class="form-control" id="outcome-name" placeholder="add outcome name" ng-model="outcome.name" required>
+			</div>
+			<div class="form-group">
+				<label for="incomeFrequency">Schedule</label>
+				<input type="text" class="form-control" id="outcome-schedule" placeholder="Weekly" ng-model="outcome.frequency" required>
+			</div>
+			<div class="form-group">
+				<label for="incomeDueDay">Weekday</label>
+				<input type="text" class="form-control" id="outcome-due-day" placeholder="Friday" ng-model="outcome.dueDay" required>
+			</div>
+			<div class="form-group">
+				<label for="incomeDueDate">Date</label>
+				<input type="text" class="form-control" id="outcome-due-date" placeholder="25" ng-model="outcome.dueDate" required>
+			</div>
+			<div class="form-group">
+				<label for="incomeAmount">Amount</label>
+				<input type="text" class="form-control" id="outcome-amount" placeholder="$122.37" ng-model="outcome.amount" required>
+			</div>
+			<div class="form-group">
+				<label for="incomeMonths">Term in Months</label>
+				<input type="text" class="form-control" id="outcome-months" placeholder="how many months until it's due?" ng-model="outcome.months" required>
+			</div>
+			<div class="form-group">
+				<label for="incomeInterest">Interest Rate</label>
+				<input type="text" class="form-control" id="outcome-interest" placeholder="what is the interest rate?" ng-model="outcome.interest" required>
+			</div>
+			<div class="form-group">
+				<label for="incomeLocation">Out of Storage</label>
+				<input type="text" class="form-control" id="outcome-amount" placeholder="Checking" ng-model="outcome.location" required>
+			</div>
+			<button type="submit" class="btn btn-default">Add</button>
 		</form>
 	</section>
 </section>

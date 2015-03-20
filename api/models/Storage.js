@@ -16,6 +16,10 @@ module.exports = {
 		    type: 'integer',
 		    required: true
 		    },
+		// interest:{
+		// 	type: 'integer',
+		// 	required: true
+		// },
 		user: {
 			model: 'UserProfile'
 		    }

@@ -1,7 +1,35 @@
 <section id="welcome-analysis" ng-controller="WelcomeAnalysisCtrl">
 	<div id="analysis-menu">
 		<div id="millennials">
-			<h2>The Average Millennial</div></h2>
+			
+			<section class="millennial-modal">
+		  		<a class="millennial-modal-header" ng-click="modals.millennial = !modals.millennial">
+		  			<h2 id="millennial-header">The Average Millennial
+			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.millennial"></span>
+			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.millennial"></span>
+			  		</h2>
+		  		</a>
+		  		
+				<div class="content" ng-show="modals.millennial">
+	                <div><strong>The User</strong></div>
+	                <p class="text">Why a millennial? Because our generation has been faced with the toughest financial environment in recent history, while receiving the least financial education to navigate it. Our average millennial user data has been pulled from <a href="https://www.whitehouse.gov/sites/default/files/docs/millennials_report.pdf"> whitehouse.gov</a> and is based on the average millennial within this data set.</p>
+	                <div><strong>Benchmark Data</strong></div>
+	                	<p class="text">
+	                		<div>
+	                			Age: 25
+	                			<br>
+	                			Income: $40,000
+	                			<br>
+	                			Income Tax Rate: 25%
+	                		</div>
+	                	</p>
+	                <div><strong>Not You?</strong></div>
+	                	<p class="text">
+	                		Not a millennial? Don't worry, 60% of the US population isn't. Though MF is created by millennials, our goal is to help all americans acheive a better understanding of their finances. Tailor our whole analysis suite to relflect your situation by <a ui-sref="register">registering</a> with us! Also, did we mention.. it's <strong>FREE</strong>.
+	                	</p>
+				</div>
+			</section>
+
 			
 		</div>
 			
@@ -23,7 +51,8 @@
 		<hr>
 	</div>
 
-	<div id="analysis-tables">
+
+	<div id="analysis-tables" ng-show="analysisTable">
 		<div id="stocks" class="panel panel-default analysis-table">
 		  <!-- Default panel contents -->
 		  <div class="panel-heading">
@@ -48,18 +77,18 @@
 		    <th class="table-header">Start of Year</th>
 		    <th class="table-header">Gain/Loss</th>
 		    <th class="table-header">Taxes</th>
-		    <th class="table-header">End of Year</th>
+		    <th class="table-header table-data-end">End of Year</th>
 		    <tr>
 		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
 		    	<td class="table-data">{{ stockStartValue }}</td>
 		    	<td class="table-data">{{ growth }}</td>
 		    	<td class="table-data">{{ capitalGains }}</td>
-		    	<td class="table-data">{{ stockEndValue }}</td>
+		    	<td class="table-data  table-data-end">{{ stockEndValue }}</td>
 		    </tr>
 		  </table>
 		</div>
 
-		<div id="savings-account" class="panel panel-default analysis-table" ng-show="analysisTable">
+		<div id="savings-account" class="panel panel-default analysis-table">
 		  <!-- Default panel contents -->
 		<div class="panel-heading">
 		  	<section class="storage-modal">
@@ -83,22 +112,22 @@
 		    <th class="table-header">Start of Year</th>
 		    <th class="table-header">Gain/Loss</th>
 		    <th class="table-header">Taxes</th>
-		    <th class="table-header">End of Year</th>
+		    <th class="table-header table-data-end">End of Year</th>
 		    <tr>
 		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
-		    	<td class="table-data">{{ stockStartValue }}</td>
-		    	<td class="table-data">{{ growth }}</td>
-		    	<td class="table-data">{{ capitalGains }}</td>
-		    	<td class="table-data">{{ stockEndValue }}</td>
+		    	<td class="table-data">{{ savingsStartValue }}</td>
+		    	<td class="table-data">{{ savingsGrowth }}</td>
+		    	<td class="table-data">{{ incomeTax }}</td>
+		    	<td class="table-data table-data-end">{{ savingsEndValue }}</td>
 		    </tr>
 		  </table>
 		</div>
 
-		<div id="401K" class="panel panel-default analysis-table" ng-show="analysisTable">
+		<div id="401K" class="panel panel-default analysis-table">
 		  <!-- Default panel contents -->
 		  <div class="panel-heading">
 		  	<section class="storage-modal">
-				<a class="storage-modal-header" ng-click="modals.fourk = !modals.fourk">401K Account
+				<a class="storage-modal-header" ng-click="modals.fourk = !modals.fourk">Traditional: 401K Account or Individul Retirement Account (IRA)
 			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.fourk"></span>
 			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.fourk"></span>
 	  			</a>
@@ -117,91 +146,23 @@
 		    <th class="table-header">Start of Year</th>
 		    <th class="table-header">Gain/Loss</th>
 		    <th class="table-header">Taxes</th>
-		    <th class="table-header">End of Year</th>
+		    <th class="table-header table-data-end">End of Year</th>
 		    <tr>
 		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
-		    	<td class="table-data">{{ stockStartValue }}</td>
-		    	<td class="table-data">{{ growth }}</td>
-		    	<td class="table-data">{{ capitalGains }}</td>
-		    	<td class="table-data">{{ stockEndValue }}</td>
+		    	<td class="table-data">{{ traditionalStartValue }}</td>
+		    	<td class="table-data">{{ traditionalGrowth }}</td>
+		    	<td class="table-data">{{ traditionalIncomeTax }}</td>
+		    	<td class="table-data table-data-end">{{ traditionalEndValue }}</td>
 		    </tr>
 		  </table>
 		  </table>
 		</div>
 
-		<div id="roth-401k" class="panel panel-default analysis-table" ng-show="analysisTable">
+		<div id="roth-ira" class="panel panel-default analysis-table">
 		  <!-- Default panel contents -->
 		<div class="panel-heading">
 		  	<section class="storage-modal">
-				<a class="storage-modal-header" ng-click="modals.rothfourk = !modals.rothfourk">Roth 401K Account
-			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.rothfourk"></span>
-			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.rothfourk"></span>
-	  			</a>
-
-	  			<div class="content" ng-show="modals.rothfourk">
-	                <div><strong>Overview</strong></div>
-	                <p class="text"><small>This is a synopsis of a savings account.</small></p>
-	                <div><strong>Taxes</strong></div>
-	                <p class="text"><small>This is a synopsis of the tax ramifications on stocks.</small></p>
-				</div>
-	  		</section>
-	  	</div>
-		  <!-- Table -->
-		  <table class="table">
-		    <th class="table-header">Year</th>
-		    <th class="table-header">Start of Year</th>
-		    <th class="table-header">Gain/Loss</th>
-		    <th class="table-header">Taxes</th>
-		    <th class="table-header">End of Year</th>
-		    <tr>
-		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
-		    	<td class="table-data">{{ stockStartValue }}</td>
-		    	<td class="table-data">{{ growth }}</td>
-		    	<td class="table-data">{{ capitalGains }}</td>
-		    	<td class="table-data">{{ stockEndValue }}</td>
-		    </tr>
-		  </table>
-		</div>
-
-		<div id="ira" class="panel panel-default analysis-table" ng-show="analysisTable">
-		  <!-- Default panel contents -->
-		  <div class="panel-heading">
-		  	<section class="storage-modal">
-				<a class="storage-modal-header" ng-click="modals.ira = !modals.ira">Individual Retirement Account (IRA)
-			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.ira"></span>
-			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.ira"></span>
-	  			</a>
-
-	  			<div class="content" ng-show="modals.ira">
-	                <div><strong>Overview</strong></div>
-	                <p class="text"><small>This is a synopsis of a savings account.</small></p>
-	                <div><strong>Taxes</strong></div>
-	                <p class="text"><small>This is a synopsis of the tax ramifications on stocks.</small></p>
-				</div>
-	  		</section>
-	  	</div>
-		  <!-- Table -->
-		  <table class="table">
-		    <th class="table-header">Year</th>
-		    <th class="table-header">Start of Year</th>
-		    <th class="table-header">Gain/Loss</th>
-		    <th class="table-header">Taxes</th>
-		    <th class="table-header">End of Year</th>
-		    <tr>
-		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
-		    	<td class="table-data">{{ stockStartValue }}</td>
-		    	<td class="table-data">{{ growth }}</td>
-		    	<td class="table-data">{{ capitalGains }}</td>
-		    	<td class="table-data">{{ stockEndValue }}</td>
-		    </tr>
-		  </table>
-		</div>
-
-		<div id="roth-ira" class="panel panel-default analysis-table" ng-show="analysisTable">
-		  <!-- Default panel contents -->
-		<div class="panel-heading">
-		  	<section class="storage-modal">
-				<a class="storage-modal-header" ng-click="modals.rothira = !modals.rothira">Roth Individual Retirement Account (Roth IRA)
+				<a class="storage-modal-header" ng-click="modals.rothira = !modals.rothira">Roth: 401K Account or Individual Retirement Account (Roth IRA)
 			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.rothira"></span>
 			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.rothira"></span>
 	  			</a>
@@ -220,88 +181,18 @@
 		    <th class="table-header">Start of Year</th>
 		    <th class="table-header">Gain/Loss</th>
 		    <th class="table-header">Taxes</th>
-		    <th class="table-header">End of Year</th>
+		    <th class="table-header table-data-end">End of Year</th>
 		    <tr>
 		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
-		    	<td class="table-data">{{ stockStartValue }}</td>
-		    	<td class="table-data">{{ growth }}</td>
-		    	<td class="table-data">{{ capitalGains }}</td>
-		    	<td class="table-data">{{ stockEndValue }}</td>
+		    	<td class="table-data">{{ rothStartValue }}</td>
+		    	<td class="table-data">{{ rothGrowth }}</td>
+		    	<td class="table-data">{{ rothIncomeTax }}</td>
+		    	<td class="table-data table-data-end">{{ rothEndValue }}</td>
 		    </tr>
 		  </table>
 		  </table>
 		</div>
-
-		<div id="universal-life" class="panel panel-default analysis-table" ng-show="analysisTable">
-		  <!-- Default panel contents -->
-		  <div class="panel-heading">
-		  	<section class="storage-modal">
-				<a class="storage-modal-header" ng-click="modals.ul = !modals.ul">Universal Life Insurance
-			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.ul"></span>
-			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.ul"></span>
-	  			</a>
-
-	  			<div class="content" ng-show="modals.ul">
-	                <div><strong>Overview</strong></div>
-	                <p class="text"><small>This is a synopsis of a savings account.</small></p>
-	                <div><strong>Taxes</strong></div>
-	                <p class="text"><small>This is a synopsis of the tax ramifications on stocks.</small></p>
-				</div>
-	  		</section>
-	  	</div>
-
-		  <!-- Table -->
-		  <table class="table">
-		    <th class="table-header">Year</th>
-		    <th class="table-header">Start of Year</th>
-		    <th class="table-header">Gain/Loss</th>
-		    <th class="table-header">Taxes</th>
-		    <th class="table-header">End of Year</th>
-		    <tr>
-		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
-		    	<td class="table-data">{{ stockStartValue }}</td>
-		    	<td class="table-data">{{ growth }}</td>
-		    	<td class="table-data">{{ capitalGains }}</td>
-		    	<td class="table-data">{{ stockEndValue }}</td>
-		    </tr>
-		  </table>
-		</div>
-
-		<div id="ul-trust" class="panel panel-default analysis-table" ng-show="analysisTable">
-		  <!-- Default panel contents -->
-		  <div class="panel-heading">
-		  	<section class="storage-modal">
-				<a class="storage-modal-header" ng-click="modals.uldynasty = !modals.uldynasty">Universal Life Insurance & Dynasty Trust
-			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.uldynasty"></span>
-			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.uldynasty"></span>
-	  			</a>
-
-	  			<div class="content" ng-show="modals.uldynasty">
-	                <div><strong>Overview</strong></div>
-	                <p class="text"><small>This is a synopsis of a savings account.</small></p>
-	                <div><strong>Taxes</strong></div>
-	                <p class="text"><small>This is a synopsis of the tax ramifications on stocks.</small></p>
-				</div>
-	  		</section>
-	  	</div>
-
-
-		  <!-- Table -->
-		  <table class="table">
-		    <th class="table-header">Year</th>
-		    <th class="table-header">Start of Year</th>
-		    <th class="table-header">Gain/Loss</th>
-		    <th class="table-header">Taxes</th>
-		    <th class="table-header">End of Year</th>
-		    <tr>
-		    	<td class="table-data"><strong>{{ analysisYear }}</strong></td>
-		    	<td class="table-data">{{ stockStartValue }}</td>
-		    	<td class="table-data">{{ growth }}</td>
-		    	<td class="table-data">{{ capitalGains }}</td>
-		    	<td class="table-data">{{ stockEndValue }}</td>
-		    </tr>
-		  </table>
-		</div>
+		
 	</div>
 
 	<div id="analysis-graphs" ng-hide="analysisGraph">
