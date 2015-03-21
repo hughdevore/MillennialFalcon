@@ -14,15 +14,11 @@
  * or any other Grunt tasks you like.)
  */
 body {
-  margin: 0; }
-@font-face {
-  body {
-    font-family: nevis;
-    src: url("fonts/nevis/nevis.ttf"); } }
-  body h1 {
-    font-family: nevis; }
+  margin: 0;
+  font-family: 'PT Sans', sans-serif; }
 
 header {
+  font-family: 'PT Sans', sans-serif;
   background-color: #B5CEE7;
   padding: 0em 0em 2em 2em;
   margin: 0;
@@ -35,13 +31,13 @@ header {
 #logo-image {
   height: 112px;
   width: 112px;
-  background-color: #D99058;
+  background-color: gray;
   display: inline-block; }
 
 #logo-text {
-  font-size: 1.75em;
+  font-size: 1.65em;
   display: inline-block;
-  color: black;
+  color: #D99058;
   text-decoration: none;
   overflow: hidden;
   margin-bottom: 0; }
@@ -55,8 +51,8 @@ header {
   padding-right: 1em;
   padding-top: 0.5em;
   margin-bottom: 0;
-  font-size: 1.5em;
-  color: black; }
+  font-size: 1em;
+  color: white; }
 
 #logout-register-link {
   text-decoration: none;
@@ -65,7 +61,7 @@ header {
   padding-top: 0.5em;
   margin-bottom: 0;
   font-size: 1em;
-  color: black; }
+  color: white; }
 
 .login {
   display: inline-block;
@@ -73,7 +69,9 @@ header {
   text-align: right;
   underline: none;
   text-decoration: none;
-  cursor: pointer; }
+  cursor: pointer;
+  color: white;
+  font-weight: 200; }
 
 .login:hover {
   display: inline-block;
@@ -84,30 +82,54 @@ header {
   text-decoration: none;
   cursor: pointer; }
 
-#body {
-  margin: 5%;
+#welcome {
+  font-family: 'PT Sans', sans-serif;
+  margin-bottom: 25%;
   text-align: center; }
 
+#welcome-header {
+  margin: 5%; }
+  @media (min-width: 1000px) {
+    #welcome-header {
+      width: 800px;
+      margin: 0 auto; } }
+
 #header-text {
-  margin: 2em 0; }
+  margin: 2em 0;
+  line-height: 1.75; }
 
 #welcome-query {
-  width: 100%; }
+  padding: 2em 0.5em;
+  width: 100%;
+  background-color: #B5CEE7;
+  display: inline-block; }
+
+#welcome-query h2 {
+  line-height: 1.3;
+  padding-bottom: 1em; }
 
 #welcome-input {
-  display: inline-block;
-  margin-right: 1em; }
+  width: 250px; }
+
+#welcome-dollar {
+  width: 20px; }
 
 #input {
+  margin-top: 1em;
   font-size: 14px;
-  width: 250px;
+  width: 220px;
   text-align: center;
   padding: 0.5em; }
 
 #welcome-button {
   display: inline-block; }
 
+.input-group {
+  display: inline-block;
+  width: 100%; }
+
 #welcome-analysis {
+  font-family: 'PT Sans', sans-serif;
   margin: 5%; }
 
 #millennials {
@@ -137,15 +159,23 @@ header {
 #analysis-menu {
   text-align: center; }
 
-#analysis-year {
-  width: 150px;
+.input-group {
+  border-bottom: 1px solid #EEEEEE;
+  text-align: center;
+  margin: 0 auto;
+  width: 200px; }
+
+.form-control {
   text-align: center; }
 
 #analysis-input {
-  padding: 1em 0 0.5em 0;
+  padding: 1em;
   text-align: center;
-  width: 205px;
   margin: 0 auto; }
+  @media (min-width: 1000px) {
+    #analysis-input {
+      width: 45%;
+      display: inline-block; } }
 
 #analysis-output {
   text-align: center; }
@@ -154,10 +184,11 @@ header {
   display: inline-block;
   margin: 1em 1em 2em 1em;
   width: 100px;
-  text-align: center; }
+  text-align: center;
+  background-color: #D99058; }
 
 .storage-modal-header {
-  color: black;
+  color: #7E7E7E;
   font-size: 1.5em; }
 
 .storage-modal-header:hover {
@@ -185,12 +216,22 @@ header {
   font-size: 1em;
   font-weight: 600; }
 
+#analysis-tables {
+  padding: 0 5%;
+  text-align: center; }
+
 .analysis-table {
   margin: 3em 0 2em 0; }
+  @media (min-width: 1000px) {
+    .analysis-table {
+      margin: 1em;
+      width: 50%; } }
 
 .table-header {
   text-align: center;
-  font-size: 1.15em; }
+  font-size: 1.15em;
+  display: table-cell;
+  vertical-align: middle; }
 
 .table-data {
   text-align: center; }
@@ -198,18 +239,23 @@ header {
 .table-data-end {
   background-color: #B5CEE7; }
 
+#analysis-graph {
+  margin: 20%; }
+
 #footer {
   background-color: #D99058;
   font-size: 0.75em;
   padding: 2em; }
 
 #login-container {
+  font-family: 'PT Sans', sans-serif;
   margin: 5%; }
 
 #login-form {
   margin: 3% 15%; }
 
 #register-container {
+  font-family: 'PT Sans', sans-serif;
   margin: 5%;
   margin-bottom: 15%; }
 
@@ -217,6 +263,7 @@ header {
   margin: 3% 15%; }
 
 #user-data-container {
+  font-family: 'PT Sans', sans-serif;
   margin: 5%;
   margin-bottom: 15%; }
 
@@ -243,5 +290,10 @@ header {
 
 .glyphicon-remove-circle:hover {
   color: #D99058; }
+
+@media (min-width: 1000px) {
+  .panel {
+    width: 45%;
+    display: inline-block; } }
 
 /*# sourceMappingURL=importer.css.map */
