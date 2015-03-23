@@ -36,13 +36,11 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 	};
 
 	$scope.modals = {
-		millennial: false,
-		stocks: false,
-		savings: false,
-		fourk: false,
-		rothfourk: false,
-		ira: false,
-		rothira: false,
+		millennial: true,
+		stocks: true,
+		savings: true,
+		traditional: true,
+		roth: true
 	};
 
 	

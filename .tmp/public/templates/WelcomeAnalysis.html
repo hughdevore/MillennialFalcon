@@ -1,40 +1,44 @@
 <section id="welcome-analysis" ng-controller="WelcomeAnalysisCtrl">
-	<div id="analysis-menu">
-		<div id="millennials">
-			
-			<section class="millennial-modal">
-		  		<a class="millennial-modal-header" ng-click="modals.millennial = !modals.millennial">
-		  			<h2 id="millennial-header">The Average Millennial
-			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.millennial"></span>
-			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.millennial"></span>
-			  		</h2>
-		  		</a>
-		  		
-				<div class="content" ng-show="modals.millennial">
-	                <div><strong>The User</strong></div>
-	                <p class="text">Why a millennial? Because our generation has been faced with the toughest financial environment in recent history, while receiving the least financial education to navigate it. Our average millennial user data has been pulled from <a href="https://www.whitehouse.gov/sites/default/files/docs/millennials_report.pdf"> whitehouse.gov</a> and is based on the average millennial within this data set.</p>
-	                <div><strong>Benchmark Data</strong></div>
-	                	<p class="text">
-	                		<div>
-	                			Age: 25
-	                			<br>
-	                			Income: $40,000
-	                			<br>
-	                			Income Tax Rate: 25%
-	                		</div>
-	                	</p>
-	                <div><strong>Not You?</strong></div>
-	                	<p class="text">
-	                		Not a millennial? Don't worry, 60% of the US population isn't. Though MF is created by millennials, our goal is to help all americans acheive a better understanding of their finances. Tailor our whole analysis suite to relflect your situation by <a ui-sref="register">registering</a> with us! Also, did we mention.. it's <strong>FREE</strong>.
-	                	</p>
-				</div>
-			</section>
+	<section id="millennials">	
+  		<a class="millennial-modal-header" ng-click="modals.millennial = !modals.millennial">
+  			<h2 id="millennial-header">THE AVERAGE MILLENNIAL
+	  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.millennial"></span>
+	  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.millennial"></span>
+	  		</h2>
+  		</a>
+  		
+		<div ng-show="modals.millennial">
+            <div class="millennial-content">
+                <h3>The User</h3>
+                <p class="text">Why a millennial? Because our generation has been faced with the toughest financial environment in recent history, while receiving the least financial education to navigate it.</p>
+            </div>
 
-			
+            <div class="millennial-content">
+                <h3>Benchmark Data</h3>
+                	<p class="text">
+                		Our average millennial user data has been pulled from <a href="https://www.whitehouse.gov/sites/default/files/docs/millennials_report.pdf"> whitehouse.gov</a> and is based on the average millennial within this data set.
+                		<br>
+            			<strong>Age:</strong> 25
+            			<br>
+            			<strong>Income Tax Rate:</strong> 25%
+                	</p>
+            </div>
+
+            <div class="millennial-content">
+                <h3>Not You?</h3>
+                	<p class="text">
+                		Not a millennial? Don't worry, 60% of the US population isn't. Though MF is created by millennials, our goal is to help all Americans acheive a better understanding of their finances. Tailor our whole analysis suite to relflect your situation by <a ui-sref="register">registering</a> with us! Also, did we mention.. it's <strong>FREE</strong>.
+                	</p>
+            </div>
 		</div>
-		
+	</section>
+	
+	<section id="millennial-analysis">
+
+		<h2>THE ANALYSIS</h2>
+
 		<div id="analysis-input">
-			<h2 id="menu-text">Value to Invest</h2>
+			<h3 id="menu-text">Value to Invest</h3>
 			<div class="input-group">
 				<span class="input-group-addon">$</span>
 				<input id="analysis-value" ng-change="update()" ng-model="value" placeholder="Enter Amount to SAVE" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
@@ -42,26 +46,26 @@
 		</div>
 
 		<div id="analysis-input">
-			<h2 id="menu-text">Year to Estimate</h2>
+			<h3 id="menu-text">Year to Estimate</h3>
 			<div class="input-group">
 				<div class="input-group-addon" id="basic-addon1">Year</div>
 				<input ng-change="update()" ng-model="analysisYear" id="analysis-year" type="text" class="form-control" placeholder="Year for Estimation" aria-describedby="basic-addon1">
 			</div>
 		</div>
 
-		<h3> Now, Select How to Interpret the Data</h3>
 		<div id="analysis-output">
+			<h3> Visualize the Data </h3>
 			<button type="button" class="btn btn-primary btn-lg analysis-output-btn" ng-click="onTableClick()">Table</button>
 			<button type="button" class="btn btn-primary btn-lg analysis-output-btn" ng-click="onGraphClick()">Graph</button>
 		</div>
 		<hr>
-	</div>
+	</section>
 
 
 	<div id="analysis-tables" ng-show="analysisTable">
 		<div id="stocks" class="panel panel-default analysis-table">
 		  <!-- Default panel contents -->
-		  <div class="panel-heading">
+		  <div class="panel-head panel-heading">
 		  	<section class="storage-modal">
 		  		<a class="storage-modal-header" ng-click="modals.stocks = !modals.stocks">Stock Portfolio
 			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.stocks"></span>
@@ -81,7 +85,7 @@
 		  <table class="table">
 		    <th class="table-header">Year</th>
 		    <th class="table-header">Start of Year</th>
-		    <th class="table-header">Gain/Loss</th>
+		    <th class="table-header">Growth</th>
 		    <th class="table-header">Taxes</th>
 		    <th class="table-header table-data-end">End of Year</th>
 		    <tr>
@@ -96,7 +100,7 @@
 
 		<div id="savings-account" class="panel panel-default analysis-table">
 		  <!-- Default panel contents -->
-		<div class="panel-heading">
+		<div class="panel-head panel-heading">
 		  	<section class="storage-modal">
 				<a class="storage-modal-header" ng-click="modals.savings = !modals.savings">Savings Account
 			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.savings"></span>
@@ -116,7 +120,7 @@
 		  <table class="table">
 		    <th class="table-header">Year</th>
 		    <th class="table-header">Start of Year</th>
-		    <th class="table-header">Gain/Loss</th>
+		    <th class="table-header">Growth</th>
 		    <th class="table-header">Taxes</th>
 		    <th class="table-header table-data-end">End of Year</th>
 		    <tr>
@@ -131,14 +135,14 @@
 
 		<div id="401K" class="panel panel-default analysis-table">
 		  <!-- Default panel contents -->
-		  <div class="panel-heading">
+		  <div class="panel-head panel-heading">
 		  	<section class="storage-modal">
-				<a class="storage-modal-header" ng-click="modals.fourk = !modals.fourk">Traditional: 401K Account or Individul Retirement Account (IRA)
-			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.fourk"></span>
-			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.fourk"></span>
+				<a class="storage-modal-header" ng-click="modals.traditional = !modals.traditional">Traditional: 401K Account or Individul Retirement Account (IRA)
+			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.traditional"></span>
+			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.traditional"></span>
 	  			</a>
 
-	  			<div class="content" ng-show="modals.fourk">
+	  			<div class="content" ng-show="modals.traditional">
 	                <div><strong>Overview</strong></div>
 	                <p class="text"><small>This is a synopsis of a savings account.</small></p>
 	                <div><strong>Taxes</strong></div>
@@ -150,7 +154,7 @@
 		  <table class="table">
 		    <th class="table-header">Year</th>
 		    <th class="table-header">Start of Year</th>
-		    <th class="table-header">Gain/Loss</th>
+		    <th class="table-header">Growth</th>
 		    <th class="table-header">Taxes</th>
 		    <th class="table-header table-data-end">End of Year</th>
 		    <tr>
@@ -166,14 +170,14 @@
 
 		<div id="roth-ira" class="panel panel-default analysis-table">
 		  <!-- Default panel contents -->
-		<div class="panel-heading">
+		<div class="panel-head panel-heading">
 		  	<section class="storage-modal">
-				<a class="storage-modal-header" ng-click="modals.rothira = !modals.rothira">Roth: 401K Account or Individual Retirement Account (Roth IRA)
-			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.rothira"></span>
-			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.rothira"></span>
+				<a class="storage-modal-header" ng-click="modals.roth = !modals.roth">Roth: 401K Account or Individual Retirement Account (Roth IRA)
+			  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.roth"></span>
+			  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.roth"></span>
 	  			</a>
 
-	  			<div class="content" ng-show="modals.rothira">
+	  			<div class="content" ng-show="modals.roth">
 	                <div><strong>Overview</strong></div>
 	                <p class="text"><small>This is a synopsis of a savings account.</small></p>
 	                <div><strong>Taxes</strong></div>
@@ -185,7 +189,7 @@
 		  <table class="table">
 		    <th class="table-header">Year</th>
 		    <th class="table-header">Start of Year</th>
-		    <th class="table-header">Gain/Loss</th>
+		    <th class="table-header">Growth</th>
 		    <th class="table-header">Taxes</th>
 		    <th class="table-header table-data-end">End of Year</th>
 		    <tr>
@@ -203,7 +207,7 @@
 
 	<div id="analysis-graphs" ng-hide="analysisGraph">
 		<div id="analysis-graph">
-			<cr-d3-bars data='myData'></cr-d3-bars>
+			<div google-chart chart="chartObject" style="{{cssStyle}}"></div>
 		</div>
 
 	</div>

@@ -2,6 +2,9 @@ body {
 	margin: 0;
 	font-family: 'PT Sans', sans-serif;
 }
+h1 {
+	color: #0B6294;
+}
 
 
 
@@ -11,7 +14,7 @@ body {
 
 header {
 	font-family: 'PT Sans', sans-serif;
-	background-color: #B5CEE7;
+	background-color: #B9CFE5;
 	padding: 0em 0em 2em 2em;
 	margin: 0;
 	font-size: 1.25em;
@@ -27,15 +30,24 @@ header {
 	display: inline-block;
 }
 #logo-text {
-	font-size: 1.65em;
+	font-size: 1.5em;
+	width: 220px;
 	display: inline-block;
-	color: #D99058;
+	color: #BD812A;
 	text-decoration: none;
 	overflow: hidden;
 	margin-bottom: 0;
+	@media(min-width: 880px) {
+		vertical-align: bottom;
+		margin-left: 0.25em;
+		width: 700px;
+		font-size: 2em;
+		display: inline-block;
+	}
 }
 #logo-text:hover {
 	text-decoration: none;
+	color: #FFEACE;
 }
 
 #login-register-link {
@@ -45,7 +57,7 @@ header {
 	padding-top: 0.5em;
 	margin-bottom: 0;
 	font-size: 1em;
-	color: white;
+	color: #3A658F;
 }
 #logout-register-link {
 	text-decoration: none;
@@ -54,7 +66,7 @@ header {
 	padding-top: 0.5em;
 	margin-bottom: 0;
 	font-size: 1em;
-	color: white;
+	color: #3A658F;
 }
 .login {
 	display: inline-block;
@@ -63,14 +75,14 @@ header {
 	underline: none;
 	text-decoration: none;
 	cursor: pointer;
-	color: white;
-	font-weight: 200;
+	color: #3A658F;
+	font-weight: 100;
 }
 .login:hover {
 	display: inline-block;
 	text-decoration: none;
 	text-align: right;
-	color: #D99058;
+	color: #DCA34F;
 	underline: none;
 	text-decoration: none;
 	cursor: pointer;
@@ -89,25 +101,32 @@ header {
 }
 
 #welcome-header{
-	margin: 5%;
+
 	@media(min-width: 1000px) {
 		width: 800px;
 		margin: 0 auto;
 	}
 }
+#welcome-header h1 {
+	padding-top: 1em;
+	color: #3A658F;
+}
 #header-text {
-	margin: 2em 0;
-	line-height: 1.75;
+	margin: 3%;
+	line-height: 1.6;
+	padding: 1em;
+	font-size: 1.15em;
 }
 #welcome-query {
-	padding: 2em 0.5em;
+	padding: 2em 0.5em 4em 0.5em;
 	width: 100%;
-	background-color: #B5CEE7;
+	background-color: #FFEACE;
 	display: inline-block;
 }
 #welcome-query h2 {
+	color: #224F7B;
 	line-height: 1.3;
-	padding-bottom: 1em;
+	padding-bottom: 0.5em;
 }
 #welcome-input {
 	width: 250px;
@@ -137,38 +156,75 @@ header {
 
 #welcome-analysis{
 	font-family: 'PT Sans', sans-serif;
-	margin: 5%;
 }
 #millennials {
-	text-align: left;
-	padding: 1.5em;
-	background-color: #D99058;
-	display: inline-block;
+	padding: 0 7%;
+	padding-top: 7%;
+	@media(min-width: 1000px) {
+		padding: 0;
+		width: 75%;
+		margin: 0 auto;
+	}
+}
+#millennials h2 {
 	width: 100%;
-}
-#millennial-header {
+	color: #3A658F;
+	font-size: 1.75em;
 	display: inline-block;
-}
-.millennial-modal-header {
-	color: white;
-	font-size: 1.5em;
+	background-color: #FFEACE;
+	padding: 0.5em;
+	padding-top: 0.75em;
 }
 .millennial-modal-header:hover {
-	color: #B5CEE7;
-	underline: none;
+	color: #BD812A;
 	text-decoration: none;
 	cursor: pointer;
 }
+.millennial-content {
+	margin-bottom: 2em;
+	text-align: left;
+}
+.millennial-content h3{
+	margin: 0;
+	color: #85A7C8;
+	font-size: 1.35em;
+	font-weight: 500;
+	padding: 0.5em;
+}
+.millennial-content p {
+	padding: 0 1em;
+	
+}
 
+
+
+#millennial-analysis {
+	padding: 0 7%;
+	padding-top: 3%;
+	@media(min-width: 1000px) {
+		padding: 0;
+		width: 75%;
+		margin: 0 auto;
+	}
+}
+#millennial-analysis h2 {
+	width: 100%;
+	color: #3A658F;
+	font-size: 1.75em;
+	display: inline-block;
+	background-color: #FFEACE;
+	padding: 0.5em;
+	padding-top: 0.75em;
+}
+#millennial-analysis h3{
+	color: #85A7C8;
+}
 #menu-text {
-	padding: 0.5em 0 0 0;
 	text-align: center;
 }
-#analysis-menu {
-	text-align: center;
-}
+
 .input-group {
-	border-bottom: 1px solid #EEEEEE;
+	border-bottom: none;
 	text-align: center;
 	margin: 0 auto;
 	width: 200px;
@@ -176,8 +232,6 @@ header {
 .form-control {
 	text-align: center;
 }
-
-
 #analysis-input {
 	padding: 1em;
 	text-align: center;
@@ -198,25 +252,18 @@ header {
 	background-color: #D99058;
 }
 
+
+
 // Welcome Analysis - Modals
 .storage-modal-header {
-	color: #7E7E7E;
+	color: #3A658F;
 	font-size: 1.5em;
 }
 .storage-modal-header:hover {
-	color: #D99058;
-	underline: none;
+	color: #BD812A;
 	text-decoration: none;
 	cursor: pointer;	
 }
-.closed {
-	display: none;
-}
-.open {
-	display: inline-block;
-}
-
-
 .glyphicon {
 	font-size: 0.5em;
 }
@@ -225,27 +272,25 @@ header {
 	padding: 0.5em;
 	border-top: 1px solid #EEEEEE;
 }
-
-.panel-heading {
-	background-color: #B5CEE7;
+#analysis-tables .panel-head {
+	background-color: #FFEACE;
 	font-size: 1em;
 	font-weight: 600;
 }
 #analysis-tables {
-	padding: 0 5%;
-	text-align: center;
+	margin: 0 5%;
+	margin-bottom: 10%;
 }
 .analysis-table {
-	margin: 3em 0 2em 0;
-	@media (min-width: 1000px){
-		margin: 1em;
-		width: 50%;
+	@media (min-width: 800px){
+		margin: 0 2%;
+		display: inline-block;
+		width: 45%;
 	}
 }
 .table-header {
 	text-align: center;
 	font-size: 1.15em;
-	display: table-cell;
     vertical-align: middle;
 }
 .table-data {
@@ -273,9 +318,20 @@ header {
 #login-container {
 	font-family: 'PT Sans', sans-serif;
 	margin: 5%;
+	padding-top: 1em;
+		@media(min-width: 1000px) {
+			padding-top: 1em;
+			width: 900px;
+			margin: 0 auto;
+		}
+}
+#login-container h2 {
+	background-color: #FFEACE;
+	color: #3A658F;
+	padding: 0.5em;
 }
 #login-form {
-	margin: 3% 15%;
+	margin: 3% 5%;
 }
 
 //********************
@@ -284,10 +340,21 @@ header {
 #register-container {
 	font-family: 'PT Sans', sans-serif;
 	margin: 5%;
-	margin-bottom: 15%;
+	padding-top: 1em;
+		@media(min-width: 1000px) {
+			padding-top: 1em;
+			width: 900px;
+			margin: 0 auto;
+		}
+}
+#register-container h2 {
+	background-color: #FFEACE;
+	color: #3A658F;
+	padding: 0.5em;
 }
 #register-form {
-	margin: 3% 15%;
+	margin: 3% 5%;
+	margin-bottom: 25%;
 }
 
 
@@ -299,9 +366,7 @@ header {
 	margin: 5%;
 	margin-bottom: 15%;
 }
-.form {
-	padding: 3% 10% 5% 10%;
-}
+
 .table-user {
 	text-align: center;
 	width: 100%;
@@ -322,11 +387,4 @@ header {
 }
 .glyphicon-remove-circle:hover {
 	color: #D99058;
-}
-.panel {
-	
-	@media(min-width: 1000px) {
-		width: 45%;
-		display: inline-block;
-	}
 }
