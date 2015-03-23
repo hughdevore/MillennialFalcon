@@ -1,13 +1,11 @@
-
-
 <section id="user-data-container" ng-controller="UserDataCtrl">
 <h2>YOUR FALCON</h2>	
 	<main id="data-content">
-		<section id ="storage" class="panel panel-default analysis-table">
+		<section id ="storage" class="panel panel-default">
 			  <!-- Default panel contents -->
 			<div class="panel-heading">
 			  	<section class="storage-modal">
-			  		<a class="storage-modal-header" ng-click="modals.storage = !modals.storage">INCOME STORAGE DATA
+			  		<a class="storage-modal-header" ng-click="modals.storage = !modals.storage">ACCOUNT DATA
 				  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.storage"></span>
 				  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.storage"></span>
 			  		</a>
@@ -32,7 +30,7 @@
 				    </tr>
 				  </table>
 			</div>
-			<form class="form" ng-submit="storageSubmit(storage)">
+			<form class="dataForm form" ng-submit="storageSubmit(storage)">
 				<div class="form-group">
 					<label for="storageName">Storage Name</label>
 					<input type="text" class="form-control" id="storage-name" placeholder="add account name" ng-model="storage.name" required>
@@ -45,11 +43,11 @@
 			</form>
 		</section>
 
-		<section id ="income" class="panel panel-default analysis-table">
+		<section id ="income" class="panel panel-default">
 			  <!-- Default panel contents -->
 			<div class="panel-heading">
 			  	<section class="storage-modal">
-			  		<a class="storage-modal-header" ng-click="modals.income = !modals.income">INCOME DATA
+			  		<a class="storage-modal-header" ng-click="modals.income = !modals.income">INCOME
 				  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.income"></span>
 				  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.income"></span>
 			  		</a>
@@ -80,7 +78,7 @@
 				    </tr>
 				  </table>
 			</div>
-			<form class="form" ng-submit="incomeSubmit(income)">
+			<form class="dataForm form" ng-submit="incomeSubmit(income)">
 				<div class="form-group">
 					<label for="incomeName">Name</label>
 					<input type="text" class="form-control" id="income-name" placeholder="add income name" ng-model="income.name" required>
@@ -106,18 +104,18 @@
 					<input type="text" class="form-control" id="income-taxes" placeholder="Before Tax" ng-model="income.taxes" required>
 				</div>
 				<div class="form-group">
-					<label for="incomeLocation">Storage</label>
+					<label for="incomeLocation">Linked Account</label>
 					<input type="text" class="form-control" id="income-amount" placeholder="Checking" ng-model="income.location" required>
 				</div>
 				<button type="submit" class="btn btn-default">Add</button>
 			</form>
 		</section>
 		
-		<section id ="outcome" class="panel panel-default analysis-table">
+		<section id ="outcome" class="panel panel-default">
 			  <!-- Default panel contents -->
 			<div class="panel-heading">
 			  	<section class="storage-modal">
-			  		<a class="storage-modal-header" ng-click="modals.outcome = !modals.outcome">OUTCOME DATA
+			  		<a class="storage-modal-header" ng-click="modals.outcome = !modals.outcome">EXPENSES
 				  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.outcome"></span>
 				  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.outcome"></span>
 			  		</a>
@@ -131,7 +129,7 @@
 			<div>
 				<table class="table-user">
 				    <tr class="row-user">
-					    <th class="table-header">Outcome</th>
+					    <th class="table-header">Expense</th>
 					    <th class="table-header">Frequency</th>
 					    <th class="table-header">Due Day/Date</th>
 					    <th class="table-header">Amount</th>
@@ -148,7 +146,7 @@
 				    </tr>
 				  </table>
 			</div>
-			<form class="form" ng-submit="outcomeSubmit(outcome)">
+			<form class="dataForm form" ng-submit="outcomeSubmit(outcome)">
 				<div class="form-group">
 					<label for="incomeName">Name</label>
 					<input type="text" class="form-control" id="outcome-name" placeholder="add outcome name" ng-model="outcome.name" required>
@@ -170,7 +168,7 @@
 					<input type="text" class="form-control" id="outcome-amount" placeholder="$122.37" ng-model="outcome.amount" required>
 				</div>
 				<div class="form-group">
-					<label for="incomeMonths">Term in Months</label>
+					<label for="incomeMonths">Loan Duration in Months</label>
 					<input type="text" class="form-control" id="outcome-months" placeholder="how many months until it's due?" ng-model="outcome.months" required>
 				</div>
 				<div class="form-group">
@@ -178,7 +176,7 @@
 					<input type="text" class="form-control" id="outcome-interest" placeholder="what is the interest rate?" ng-model="outcome.interest" required>
 				</div>
 				<div class="form-group">
-					<label for="incomeLocation">Out of Storage</label>
+					<label for="incomeLocation">Linked Account</label>
 					<input type="text" class="form-control" id="outcome-amount" placeholder="Checking" ng-model="outcome.location" required>
 				</div>
 				<button type="submit" class="btn btn-default">Add</button>

@@ -1,11 +1,23 @@
 angular.module('app.controllers', ['app.services', 'app.directives'])
-.controller('NavigationCtrl', function($scope, $state, $http) {
-	$scope.logged = true;
+.controller('NavigationCtrl', function($scope, $state, $http, $rootScope) {
+	$scope.logged = false;
 
 	$http.get('auth/user')
 	.success(function() {
 		$scope.logged = false;
 	});
+
+	$scope.logout = function() {
+		$scope.logged = false;
+		console.log('logged out');
+
+		$http.get('/logout');
+		$state.go('login');
+	};
+
+	$rootScope.$on('login_event', function() {
+		$scope.logged = true;
+	})
 
 })
 .controller('WelcomeCtrl', function($scope, $state) {
@@ -191,12 +203,22 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 			}
 		}
 
-		$scope.myData = [
-	    	{name: 'Stock Portfolio', count: $scope.stockEndValueCalc},
-	    	{name: 'Savings', count: $scope.savingsEndValueCalc},
-	    	{name: 'Traditional Retirement', count: $scope.traditionalEndValueCalc},
-	    	{name: 'Roth Retirement', count: $scope.rothEndValueCalc}
-		];
+		$scope.data = {
+			    series: ["Value"],
+			    data: [{
+			      x: "Stocks",
+			      y: [parseInt($scope.stockEndValueCalc)]
+			    }, {
+			      x: "Savings",
+			      y: [parseInt($scope.savingsEndValueCalc)]
+			    }, {
+			      x: "Traditional",
+			      y: [parseInt($scope.traditionalEndValueCalc)]
+			    }, {
+			      x: "Roth",
+			      y: [parseInt($scope.rothEndValueCalc)]
+			    }]
+		};
 
 		$scope.update = function() {
 
@@ -316,14 +338,40 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 					$scope.rothEndValue = parseInt($scope.rothEndValueCalc).toLocaleString('en-US');
 				}
 			}
-			$scope.myData = [
-    			{name: 'Stock Portfolio', count: $scope.stockEndValueCalc},
-    			{name: 'Savings', count: $scope.savingsEndValueCalc},
-    			{name: 'Traditional Retirement', count: $scope.traditionalEndValueCalc},
-    			{name: 'Roth Retirement', count: $scope.rothEndValueCalc}
-			];
+			$scope.data = {
+			    series: ["Value"],
+			    data: [{
+			      x: "Stocks",
+			      y: [parseInt($scope.stockEndValueCalc)]
+			    }, {
+			      x: "Savings",
+			      y: [parseInt($scope.savingsEndValueCalc)]
+			    }, {
+			      x: "Traditional",
+			      y: [parseInt($scope.traditionalEndValueCalc)]
+			    }, {
+			      x: "Roth",
+			      y: [parseInt($scope.rothEndValueCalc)]
+			    }]
+			};
 
 		};
+
+		$scope.config = {
+		    title: '',
+		    tooltips: true,
+		    labels: true,
+		    mouseover: function() {},
+		    mouseout: function() {},
+		    click: function() {},
+		    legend: {
+		      display: false,
+		      //could be 'left, right'
+		      position: 'right'
+		    },
+		    colors: ["#85A7C8", "#DCA34F", "#3A658F", "#FFD9A3"]
+		  };
+
 	}();
 })
 .controller('RegisterCtrl', function($scope, $state, $http, Validate) {
@@ -382,7 +430,7 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 				$http.post('/UserProfile', data)
 				.success(function(newUserProfile) {
 					console.log(newUserProfile);
-					$state.go('dashboard');
+					$state.go('userData');
 				})
 				.error(function(err){
 					console.log(err);
@@ -397,7 +445,7 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 		}
 	};
 })
-.controller('LoginCtrl', function($scope, $state, $http, Validate) {
+.controller('LoginCtrl', function($scope, $state, $http, Validate, $rootScope) {
 	$scope.error = {
 		identifier: '',
 		password: '',
@@ -412,17 +460,15 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 		$scope.error = Validate.credentials(htmlCredentials);
 
 		if(!Validate.hasError($scope.error)) {
-			$http.post('/auth/user', htmlCredentials)
+			$http.post('/auth/local', htmlCredentials)
 			.success(function(res) {
 				console.log('Success!');
 				console.log(res);
 
-				if(res.success){
-					$state.go('dashboard');
-				} else {
-					$scope.error.generic = res.errors;
-				}
-				console.log($scope.error);
+				$state.go('userData');
+
+				$rootScope.$emit('login_event');
+
 			})
 			.error(function(err){
 				console.log('error');
@@ -432,20 +478,27 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 		}
 	};
 })
-.controller('NavCtrl', function($scope, $http, $state) {
-	$scope.logout = function() {
-		$http.get('/logout');
-		$state.go('login');
-	};
-})
 .controller('UserDataCtrl', function($scope, $http, $interval) {
 
-	$interval( function() {
-		$http.get('/Storage')
-		.success(function(res) {
-			$scope.stores = res;
-		});
-	}, 1000);
+	$http.get('auth/user')
+	.success(function(res) {
+		$scope.userId = res.id;
+	});
+
+	$scope.stores = [];
+
+
+	// $interval( function() {
+	// 	$http.get('/Storage')
+	// 	.success(function(res) {
+	// 		console.log(res);
+	// 		for(var i = 0; i < res.length; i++) {
+	// 			if(res[i].user.id === $scope.userId) {
+	// 				$scope.stores.push(res[i]);
+	// 			}
+	// 		}
+	// 	});
+	// }, 1000);
 	$scope.storageDelete = function() {
 
 	};
@@ -518,7 +571,7 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 			store.user = res.id;
 			$http.post('/Storage', store)
 			.success(function() {
-				console.log('Added Storage!');
+				console.log(store.user);
 			});
 		});
 	};
@@ -585,6 +638,9 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 
 })
 .controller('UserAnnuallyCtrl', function($scope) {
+
+})
+.controller('UserLifetimeCtrl', function($scope) {
 
 });
 

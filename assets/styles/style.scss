@@ -158,13 +158,8 @@ header {
 	font-family: 'PT Sans', sans-serif;
 }
 #millennials {
-	padding: 0 7%;
-	padding-top: 7%;
-	@media(min-width: 1000px) {
-		padding: 0;
-		width: 75%;
-		margin: 0 auto;
-	}
+	padding: 5% 0;
+	margin: 0 5%;
 }
 #millennials h2 {
 	width: 100%;
@@ -279,7 +274,7 @@ header {
 }
 #analysis-tables {
 	margin: 0 5%;
-	margin-bottom: 10%;
+	margin-bottom: 5%;
 }
 .analysis-table {
 	@media (min-width: 800px){
@@ -301,9 +296,26 @@ header {
 }
 
 
+
+
 #analysis-graph {
-	margin: 20%;
+	position: relative;
+	padding-bottom: 60%;
+	margin: 3% 10%;
+	@media(min-width: 600px) {
+			padding-bottom: 35%;
+			margin: 3% 20%;
+		}
 }
+.chart {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+
 
 
 #footer {
@@ -367,6 +379,21 @@ header {
 	margin-bottom: 15%;
 }
 
+#user-data-container h2 {
+	width: 100%;
+	color: #3A658F;
+	font-size: 1.75em;
+	display: inline-block;
+	background-color: #FFEACE;
+	padding: 0.5em;
+	padding-top: 0.75em;
+}
+
+.dataForm {
+	width: 75%;
+	margin: 5% auto;
+}
+
 .table-user {
 	text-align: center;
 	width: 100%;
@@ -387,4 +414,106 @@ header {
 }
 .glyphicon-remove-circle:hover {
 	color: #D99058;
+}
+
+
+
+//*********************
+//***** UserDaily *****
+//*********************
+#user-daily-container {
+	font-family: 'PT Sans', sans-serif;
+	margin: 5%;
+	margin-bottom: 15%;
+}
+
+#user-daily-container h2 {
+	width: 100%;
+	color: #3A658F;
+	font-size: 1.75em;
+	display: inline-block;
+	background-color: #FFEACE;
+	padding: 0.5em;
+	padding-top: 0.75em;
+}
+
+//**********************
+//***** UserWeekly *****
+//**********************
+
+#user-weekly-container {
+	font-family: 'PT Sans', sans-serif;
+	margin: 5%;
+	margin-bottom: 15%;
+}
+
+#user-weekly-container h2 {
+	width: 100%;
+	color: #3A658F;
+	font-size: 1.75em;
+	display: inline-block;
+	background-color: #FFEACE;
+	padding: 0.5em;
+	padding-top: 0.75em;
+}
+
+//***********************
+//***** UserMonthly *****
+//***********************
+
+#user-monthly-container {
+	font-family: 'PT Sans', sans-serif;
+	margin: 5%;
+	margin-bottom: 15%;
+}
+
+#user-monthly-container h2 {
+	width: 100%;
+	color: #3A658F;
+	font-size: 1.75em;
+	display: inline-block;
+	background-color: #FFEACE;
+	padding: 0.5em;
+	padding-top: 0.75em;
+}
+
+//************************
+//***** UserAnnually *****
+//************************
+
+#user-annually-container {
+	font-family: 'PT Sans', sans-serif;
+	margin: 5%;
+	margin-bottom: 15%;
+}
+
+#user-annually-container h2 {
+	width: 100%;
+	color: #3A658F;
+	font-size: 1.75em;
+	display: inline-block;
+	background-color: #FFEACE;
+	padding: 0.5em;
+	padding-top: 0.75em;
+}
+
+
+//************************
+//***** UserLifetime *****
+//************************
+
+#user-lifetime-container {
+	font-family: 'PT Sans', sans-serif;
+	margin: 5%;
+	margin-bottom: 15%;
+}
+
+#user-lifetime-container h2 {
+	width: 100%;
+	color: #3A658F;
+	font-size: 1.75em;
+	display: inline-block;
+	background-color: #FFEACE;
+	padding: 0.5em;
+	padding-top: 0.75em;
 }

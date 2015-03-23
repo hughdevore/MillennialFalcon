@@ -1,4 +1,4 @@
-angular.module('app',['app.controllers', 'ui.router'])
+angular.module('app',['app.controllers', 'ui.router', 'angularCharts'])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
 	$stateProvider
@@ -51,6 +51,11 @@ angular.module('app',['app.controllers', 'ui.router'])
 		url: '/annually',
 		templateUrl: 'templates/UserAnnually.html',
 		controller: 'UserAnnuallyCtrl'
+	})
+	.state('userLifetime', {
+		url: '/lifetime',
+		templateUrl: 'templates/UserLifetime.html',
+		controller: 'UserLifetimeCtrl'
 	});
 	
 	$urlRouterProvider.otherwise('/');

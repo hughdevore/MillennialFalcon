@@ -1,37 +1,4 @@
 <section id="welcome-analysis" ng-controller="WelcomeAnalysisCtrl">
-	<section id="millennials">	
-  		<a class="millennial-modal-header" ng-click="modals.millennial = !modals.millennial">
-  			<h2 id="millennial-header">THE AVERAGE MILLENNIAL
-	  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.millennial"></span>
-	  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.millennial"></span>
-	  		</h2>
-  		</a>
-  		
-		<div ng-show="modals.millennial">
-            <div class="millennial-content">
-                <h3>The User</h3>
-                <p class="text">Why a millennial? Because our generation has been faced with the toughest financial environment in recent history, while receiving the least financial education to navigate it.</p>
-            </div>
-
-            <div class="millennial-content">
-                <h3>Benchmark Data</h3>
-                	<p class="text">
-                		Our average millennial user data has been pulled from <a href="https://www.whitehouse.gov/sites/default/files/docs/millennials_report.pdf"> whitehouse.gov</a> and is based on the average millennial within this data set.
-                		<br>
-            			<strong>Age:</strong> 25
-            			<br>
-            			<strong>Income Tax Rate:</strong> 25%
-                	</p>
-            </div>
-
-            <div class="millennial-content">
-                <h3>Not You?</h3>
-                	<p class="text">
-                		Not a millennial? Don't worry, 60% of the US population isn't. Though MF is created by millennials, our goal is to help all Americans acheive a better understanding of their finances. Tailor our whole analysis suite to relflect your situation by <a ui-sref="register">registering</a> with us! Also, did we mention.. it's <strong>FREE</strong>.
-                	</p>
-            </div>
-		</div>
-	</section>
 	
 	<section id="millennial-analysis">
 
@@ -46,7 +13,7 @@
 		</div>
 
 		<div id="analysis-input">
-			<h3 id="menu-text">Year to Estimate</h3>
+			<h3 id="menu-text">Year to View</h3>
 			<div class="input-group">
 				<div class="input-group-addon" id="basic-addon1">Year</div>
 				<input ng-change="update()" ng-model="analysisYear" id="analysis-year" type="text" class="form-control" placeholder="Year for Estimation" aria-describedby="basic-addon1">
@@ -207,12 +174,45 @@
 
 	<div id="analysis-graphs" ng-hide="analysisGraph">
 		<div id="analysis-graph">
-			<div google-chart chart="chartObject" style="{{cssStyle}}"></div>
+			<div data-ac-chart="'bar'" data-ac-data="data" data-ac-config="config" class="chart"></div>
 		</div>
-
 	</div>
 
 </section>
+
+<section id="millennials">	
+  		<a class="millennial-modal-header" ng-click="modals.millennial = !modals.millennial">
+  			<h2 id="millennial-header">THE AVERAGE MILLENNIAL
+	  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.millennial"></span>
+	  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.millennial"></span>
+	  		</h2>
+  		</a>
+  		
+		<div ng-show="modals.millennial">
+            <div class="millennial-content">
+                <h3>The User</h3>
+                <p class="text">Why a millennial? Because our generation has been faced with the toughest financial environment in recent history, while receiving the least financial education to navigate it.</p>
+            </div>
+
+            <div class="millennial-content">
+                <h3>Benchmark Data</h3>
+                	<p class="text">
+                		Our average millennial user data has been pulled from <a href="https://www.whitehouse.gov/sites/default/files/docs/millennials_report.pdf"> whitehouse.gov</a> and is based on the average millennial within this data set.
+                		<br>
+            			<strong>Age:</strong> 25
+            			<br>
+            			<strong>Income Tax Rate:</strong> 25%
+                	</p>
+            </div>
+
+            <div class="millennial-content">
+                <h3>Not You?</h3>
+                	<p class="text">
+                		Not a millennial? Don't worry, 60% of the US population isn't. Though MF is created by millennials, our goal is to help all Americans acheive a better understanding of their finances. Tailor our whole analysis suite to relflect your situation by <a ui-sref="register">registering</a> with us! Also, did we mention.. it's <strong>FREE</strong>.
+                	</p>
+            </div>
+		</div>
+	</section>
 
 <div id="footer">
 		<p id="disclaimer">
