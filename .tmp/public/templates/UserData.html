@@ -1,7 +1,7 @@
 <section id="user-data-container" ng-controller="UserDataCtrl">
 <h2>YOUR FALCON</h2>	
 	<main id="data-content">
-		<section id ="storage" class="panel panel-default">
+		<section id ="storage" class="user-data panel panel-default">
 			  <!-- Default panel contents -->
 			<div class="panel-heading">
 			  	<section class="storage-modal">
@@ -11,7 +11,7 @@
 			  		</a>
 			  		
 					<div class="content" ng-show="modals.storage">
-		                <div><strong>Storage:</strong></div>
+		                <div><strong>Accounts:</strong></div>
 		                <p class="text"><small>Where does your falcon keep it's eggs safe? Do you have a checking, savings or retirement account? Add each one individually and we'll use them for your financial map.  </small></p>
 					</div>
 				</section>
@@ -19,7 +19,7 @@
 			<div>
 				<table class="table-user">
 				    <tr class="row-user">
-					    <th class="table-header">Storage</th>
+					    <th class="table-header">Account</th>
 					    <th class="table-header">Balance</th>
 					    <th class="table-header">Remove</th>
 					</tr>
@@ -32,7 +32,7 @@
 			</div>
 			<form class="dataForm form" ng-submit="storageSubmit(storage)">
 				<div class="form-group">
-					<label for="storageName">Storage Name</label>
+					<label for="storageName">Account Name</label>
 					<input type="text" class="form-control" id="storage-name" placeholder="add account name" ng-model="storage.name" required>
 				</div>
 				<div class="form-group">
@@ -43,7 +43,7 @@
 			</form>
 		</section>
 
-		<section id ="income" class="panel panel-default">
+		<section id ="income" class="user-data panel panel-default">
 			  <!-- Default panel contents -->
 			<div class="panel-heading">
 			  	<section class="storage-modal">
@@ -53,7 +53,7 @@
 			  		</a>
 			  		
 					<div class="content" ng-show="modals.income">
-		                <div><strong>Storage:</strong></div>
+		                <div><strong>Income:</strong></div>
 		                <p class="text"><small>When does your falcon bring in income from the hunt? How often? Add all of the income sources you have and we'll keep track for you. </small></p>
 					</div>
 				</section>
@@ -111,7 +111,7 @@
 			</form>
 		</section>
 		
-		<section id ="outcome" class="panel panel-default">
+		<section id ="outcome" class="user-data panel panel-default">
 			  <!-- Default panel contents -->
 			<div class="panel-heading">
 			  	<section class="storage-modal">
@@ -121,7 +121,7 @@
 			  		</a>
 			  		
 					<div class="content" ng-show="modals.outcome">
-		                <div><strong>Outcome:</strong></div>
+		                <div><strong>Expenses:</strong></div>
 		                <p class="text"><small>When do you pay your bills? Your credit cards? Your mortage? How about those never-ending student loans? Add the data for your outcome, afterall it's definitely not  income. </small></p>
 					</div>
 				</section>

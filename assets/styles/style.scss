@@ -266,6 +266,11 @@ header {
 	background-color: white;
 	padding: 0.5em;
 	border-top: 1px solid #EEEEEE;
+	height: 100px;
+	overflow: scroll;
+}
+.text {
+	font-weight: 400;
 }
 #analysis-tables .panel-head {
 	background-color: #FFEACE;
@@ -415,6 +420,15 @@ header {
 .glyphicon-remove-circle:hover {
 	color: #D99058;
 }
+.container-fluid {
+	background-color: #DCA34F;
+	color: white;
+	border: none;
+}
+
+.nav-item {
+	color: white;
+}
 
 
 
@@ -435,6 +449,12 @@ header {
 	background-color: #FFEACE;
 	padding: 0.5em;
 	padding-top: 0.75em;
+}
+.user-data {
+	@media (min-width: 775px) {
+		width: 70%;
+		margin: 0 auto;
+	}
 }
 
 //**********************

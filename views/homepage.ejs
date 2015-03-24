@@ -2,20 +2,20 @@
 
 <div class="default-page" ng-app="app" ng-controller="NavigationCtrl">
     <header>
-		<div id="login-register-link" ng-hide="logged">
-			<a class="login ng-cloak" ui-sref="login" ng-cloak>login </a>
-			<div class="login ng-cloak" ng-cloak> | </div>
-			<a class="login ng-cloak" ui-sref="register" ng-cloak> register</a>
-		</div>
-		<div id="logout-register-link" ng-show="logged">
-			<a class="login ng-cloak" ng-click="logout()" ng-cloak>logout </a>
-		</div>
-		<div id="logo-group">
-			<div id="logo-image"></div>
-			<a id="logo-text" ui-sref="welcome">
-				<h1 id="logo-text">MILLENNIAL FALCON</h1>
-			</a>
-		</div>
+    	<div id="login-register-link" ng-hide="logged">
+    		<a class="login ng-cloak" ui-sref="login" ng-cloak>login </a>
+    		<div class="login ng-cloak" ng-cloak> | </div>
+    		<a class="login ng-cloak" ui-sref="register" ng-cloak> register</a>
+    	</div>
+    	<div id="logout-register-link" ng-show="logged">
+    		<a class="login ng-cloak" ng-click="logout()" ng-cloak>logout </a>
+    	</div>
+    	<div id="logo-group">
+    		<div id="logo-image"></div>
+    		<a id="logo-text" ui-sref="welcome">
+    			<h1 id="logo-text">MILLENNIAL FALCON</h1>
+    		</a>
+    	</div>
     </header>
 
     <nav class="navbar navbar-default" ng-show="logged">
@@ -31,14 +31,14 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="nav-main collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a class="nav-link" ui-sref="userData">PROFILE</a></li>
-            <li><a class="nav-link" ui-sref="userDaily">DAILY</a></li>
-            <li><a class="nav-link" ui-sref="userWeekly">WEEKLY</a></li>
-            <li><a class="nav-link" ui-sref="userMonthly">MONTHLY</a></li>
-        <li><a class="nav-link" ui-sref="userAnnually">ANNUALLY</a></li>
-        <li><a class="nav-link" ui-sref="userLifetime">LIFETIME</a></li>
+            <li class="nav-item"><a class="nav-link" ui-sref="userData">PROFILE</a></li>
+            <li class="nav-item"><a class="nav-link" ui-sref="userDaily">DAILY</a></li>
+            <li class="nav-item"><a class="nav-link" ui-sref="userWeekly">WEEKLY</a></li>
+            <li class="nav-item"><a class="nav-link" ui-sref="userMonthly">MONTHLY</a></li>
+            <li class="nav-item"><a class="nav-link" ui-sref="userAnnually">ANNUALLY</a></li>
+            <li class="nav-item"><a class="nav-link" ui-sref="userLifetime">LIFETIME</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

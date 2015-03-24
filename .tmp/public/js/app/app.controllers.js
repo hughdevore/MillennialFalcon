@@ -26,6 +26,10 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 	$scope.onEstimateClick = function() {
     	$state.go('analysis', {estimateValue: $scope.estimateValue});
   	};
+
+  	jQuery(function($){
+   		$("#welcome-input").mask("9,999,999");
+	});
 })
 .controller('WelcomeAnalysisCtrl', function($scope, $stateParams) {
 	$scope.analysisYear = 1;
@@ -487,18 +491,19 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 
 	$scope.stores = [];
 
+	$scope.storageLoad = function() {
 
-	// $interval( function() {
-	// 	$http.get('/Storage')
-	// 	.success(function(res) {
-	// 		console.log(res);
-	// 		for(var i = 0; i < res.length; i++) {
-	// 			if(res[i].user.id === $scope.userId) {
-	// 				$scope.stores.push(res[i]);
-	// 			}
-	// 		}
-	// 	});
-	// }, 1000);
+		$http.get('/Storage')
+		.success(function(res) {
+			console.log(res);
+			for(var i = 0; i < res.length; i++) {
+				if(res[i].user.id === $scope.userId) {
+					$scope.stores.push(res[i]);
+				}
+			};
+		});
+	}();
+
 	$scope.storageDelete = function() {
 
 	};
@@ -574,6 +579,7 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 				console.log(store.user);
 			});
 		});
+		$scope.storageLoad();
 	};
 
 	$scope.incomeSubmit = function(income) {

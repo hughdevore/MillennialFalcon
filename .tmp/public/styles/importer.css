@@ -247,7 +247,12 @@ header {
 .content {
   background-color: white;
   padding: 0.5em;
-  border-top: 1px solid #EEEEEE; }
+  border-top: 1px solid #EEEEEE;
+  height: 100px;
+  overflow: scroll; }
+
+.text {
+  font-weight: 400; }
 
 #analysis-tables .panel-head {
   background-color: #FFEACE;
@@ -372,6 +377,14 @@ header {
 .glyphicon-remove-circle:hover {
   color: #D99058; }
 
+.container-fluid {
+  background-color: #DCA34F;
+  color: white;
+  border: none; }
+
+.nav-item {
+  color: white; }
+
 #user-daily-container {
   font-family: 'PT Sans', sans-serif;
   margin: 5%;
@@ -385,6 +398,11 @@ header {
   background-color: #FFEACE;
   padding: 0.5em;
   padding-top: 0.75em; }
+
+@media (min-width: 775px) {
+  .user-data {
+    width: 70%;
+    margin: 0 auto; } }
 
 #user-weekly-container {
   font-family: 'PT Sans', sans-serif;

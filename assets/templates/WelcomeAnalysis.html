@@ -8,7 +8,7 @@
 			<h3 id="menu-text">Value to Invest</h3>
 			<div class="input-group">
 				<span class="input-group-addon">$</span>
-				<input id="analysis-value" ng-change="update()" ng-model="value" placeholder="Enter Amount to SAVE" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+				<input id="analysis-value" ng-change="update()" ng-model="value" placeholder="Enter Amount to SAVE" type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
 			</div>
 		</div>
 
@@ -16,7 +16,7 @@
 			<h3 id="menu-text">Year to View</h3>
 			<div class="input-group">
 				<div class="input-group-addon" id="basic-addon1">Year</div>
-				<input ng-change="update()" ng-model="analysisYear" id="analysis-year" type="text" class="form-control" placeholder="Year for Estimation" aria-describedby="basic-addon1">
+				<input ng-change="update()" ng-model="analysisYear" id="analysis-year" type="number" class="form-control" placeholder="Year for Estimation" aria-describedby="basic-addon1">
 			</div>
 		</div>
 
@@ -40,10 +40,10 @@
 		  		</a>
 		  		
 				<div class="content" ng-show="modals.stocks">
-	                <div><strong>Overview</strong></div>
-	                <p class="text"><small>This is a synopsis of a stock portfolio.</small></p>
-	                <div><strong>Taxes</strong></div>
-	                <p class="text"><small>This is a synopsis of the tax ramifications on stocks.</small></p>
+	                <div><strong><a href="http://www.investopedia.com/terms/p/portfolio.asp">Overview</a></strong></div>
+	                <p class="text">A grouping of financial assets such as stocks, bonds and cash equivalents, as well as their mutual, exchange-traded and closed-fund counterparts. Portfolios are held directly by investors and/or managed by financial professionals.</p>
+	                <div><strong><a href="http://thelawdictionary.org/article/do-i-have-to-pay-taxes-on-my-stock-portfolio/">Taxes</a></strong></div>
+	                <p class="text">For our analysis we will only consider the regular "capital gains" income that you'll realize upon selling stocks that have appreciated in value during the time in which you held them. Which, in this example, is a 25% tax rate for anything sold before a year passes, while it is 15% for anything held longer.</p>
 				</div>
 			</section>
 		  </div>
@@ -75,8 +75,8 @@
 	  			</a>
 
 	  			<div class="content" ng-show="modals.savings">
-	                <div><strong>Overview</strong></div>
-	                <p class="text"><small>This is a synopsis of a savings account.</small></p>
+	                <div><strong><a href="http://www.investopedia.com/terms/s/savingsaccount.asp">Overview</a></strong></div>
+	                <p class="text">Because savings accounts almost always pay lower interest rates than Treasury bills and certificates of deposit, they should not be used for long-term holding periods. Their main advantages are liquidity and superior rates compared to checking accounts. Most modern savings accounts offer access to funds through visits to a local branch, over the internet and through automated teller machines.</p>
 	                <div><strong>Taxes</strong></div>
 	                <p class="text"><small>This is a synopsis of the tax ramifications on stocks.</small></p>
 				</div>
