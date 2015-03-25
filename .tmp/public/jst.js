@@ -24,7 +24,7 @@ this["JST"]["assets/templates/UserAnnually.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<section id="user-annually-container" ng-controller="UserAnnuallyCtrl">\n  <h2>ANNUALLY</h2>\n</section>';
+__p += '<section id="user-annually-container" ng-controller="UserAnnuallyCtrl">\n\t<h2>ANNUALLY</h2>\n\n\t<div class="future">\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Annual View of Anticipated Account Balances</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Total Expenses for the Year</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Total Income for the Year</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Potential Savings for the Year</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Investment Comparison of Potential Savings Annually</h3>\n\t</div>\n</section>';
 
 }
 return __p
@@ -34,7 +34,7 @@ this["JST"]["assets/templates/UserDaily.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<section id="user-daily-container" ng-controller="UserDailyCtrl">\n  <h2>DAILY</h2>\n\n</section>';
+__p += '<section id="user-daily-container" ng-controller="UserDailyCtrl">\n\t<h2>DAILY</h2>\n\n\t<div class="future">\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Starting Daily Balance of Accounts</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Bills due Today</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Income paid Today</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Ending Daily Balance of Accounts</h3>\n\t</div>\n</section>';
 
 }
 return __p
@@ -54,7 +54,7 @@ this["JST"]["assets/templates/UserLifetime.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<section id="user-lifetime-container" ng-controller="UserLifetimeCtrl">\n  <h2>LIFETIME</h2>\n<section>\n';
+__p += '<section id="user-lifetime-container" ng-controller="UserLifetimeCtrl">\n\t<h2>LIFETIME</h2>\n\n\t<div class="future">\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Lifetime View of Anticipated Account Balances</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Total Expenses for over Lifetime</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Total Income for over Lifetime</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Potential Savings over Lifetime</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Investment Comparison of Potential Savings over Lifetime</h3>\n\t</div>\n<section>\n';
 
 }
 return __p
@@ -64,7 +64,7 @@ this["JST"]["assets/templates/UserMonthly.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<section id="user-monthly-container" ng-controller="UserMonthlyCtrl">\n  <h2>MONTHLY</h2>\n</section>';
+__p += '<section id="user-monthly-container" ng-controller="UserMonthlyCtrl">\n\t<h2>MONTHLY</h2>\n\n\t<div class="future">\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Monthly View of Anticipated Account Balances</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Bills due This Month</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Income paid This Month</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Potential Savings for the Month</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Investment Comparison of Potential Savings Monthly</h3>\n\t</div>\n</section>';
 
 }
 return __p
@@ -74,7 +74,7 @@ this["JST"]["assets/templates/UserWeekly.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<section id="user-weekly-container" ng-controller="UserWeeklyCtrl">\n  <h2>WEEKLY</h2>\n</section>';
+__p += '<section id="user-weekly-container" ng-controller="UserWeeklyCtrl">\n  <h2>WEEKLY</h2>\n\n\t<div class="future">\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Weekly View of Anticipated Account Balances</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Bills due This Week</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Income paid This Week</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Weekly View of Actual Account Balances</h3>\n\t\t<br>\n\t\t<h3><span class="glyphicon glyphicon-plus-sign"></span>Potential Savings for the Week</h3>\n\t\t<br>\n\t</div>\n</section>';
 
 }
 return __p
