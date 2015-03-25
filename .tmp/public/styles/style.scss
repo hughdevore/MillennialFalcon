@@ -5,6 +5,12 @@ body {
 h1 {
 	color: #0B6294;
 }
+.panel-heading {
+	background-color: #A4D49C;
+}
+h2 {
+	border-radius: 5px;
+}
 
 
 
@@ -14,7 +20,7 @@ h1 {
 
 header {
 	font-family: 'PT Sans', sans-serif;
-	background-color: #B9CFE5;
+	background-color: #232323;
 	padding: 0em 0em 2em 2em;
 	margin: 0;
 	font-size: 1.25em;
@@ -26,28 +32,40 @@ header {
 #logo-image {
 	height: 112px;
 	width: 112px;
-	background-color: gray;
 	display: inline-block;
 }
 #logo-text {
-	font-size: 1.5em;
-	width: 220px;
-	display: inline-block;
-	color: #BD812A;
-	text-decoration: none;
-	overflow: hidden;
-	margin-bottom: 0;
-	@media(min-width: 880px) {
-		vertical-align: bottom;
-		margin-left: 0.25em;
-		width: 700px;
-		font-size: 2em;
+	display: none;
+	@media(min-width: 700px) {
+		height: 40px;
+		width: 510px;
+		display: none;
+		text-decoration: none;
+		overflow: hidden;
+		margin-bottom: 0;
 		display: inline-block;
+		vertical-align: bottom;
+		margin-left: 1em;
 	}
 }
 #logo-text:hover {
 	text-decoration: none;
-	color: #FFEACE;
+}
+#logo-text-short {
+	height: 60px;
+	width: 201px;
+	display: inline-block;
+	text-decoration: none;
+	overflow: hidden;
+	margin-bottom: 0;
+	vertical-align: bottom;
+	margin-left: 1em;
+	@media(min-width: 700px) {
+		display: none;
+	}
+}
+#logo-text-short:hover {
+	text-decoration: none;
 }
 
 #login-register-link {
@@ -66,7 +84,7 @@ header {
 	padding-top: 0.5em;
 	margin-bottom: 0;
 	font-size: 1em;
-	color: #3A658F;
+	color: white;
 }
 .login {
 	display: inline-block;
@@ -75,14 +93,14 @@ header {
 	underline: none;
 	text-decoration: none;
 	cursor: pointer;
-	color: #3A658F;
+	color: white;
 	font-weight: 100;
 }
 .login:hover {
 	display: inline-block;
 	text-decoration: none;
 	text-align: right;
-	color: #DCA34F;
+	color: #76C370;
 	underline: none;
 	text-decoration: none;
 	cursor: pointer;
@@ -109,7 +127,7 @@ header {
 }
 #welcome-header h1 {
 	padding-top: 1em;
-	color: #3A658F;
+	color: #39B54A;
 }
 #header-text {
 	margin: 3%;
@@ -120,11 +138,11 @@ header {
 #welcome-query {
 	padding: 2em 0.5em 4em 0.5em;
 	width: 100%;
-	background-color: #FFEACE;
+	background-color: #A4D49C;
 	display: inline-block;
 }
 #welcome-query h2 {
-	color: #224F7B;
+	color: #232323;
 	line-height: 1.3;
 	padding-bottom: 0.5em;
 }
@@ -163,15 +181,15 @@ header {
 }
 #millennials h2 {
 	width: 100%;
-	color: #3A658F;
+	color: #232323;
 	font-size: 1.75em;
 	display: inline-block;
-	background-color: #FFEACE;
+	background-color: #76C370;
 	padding: 0.5em;
 	padding-top: 0.75em;
 }
 .millennial-modal-header:hover {
-	color: #BD812A;
+	color: white;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -181,7 +199,7 @@ header {
 }
 .millennial-content h3{
 	margin: 0;
-	color: #85A7C8;
+	color: #232323;
 	font-size: 1.35em;
 	font-weight: 500;
 	padding: 0.5em;
@@ -204,15 +222,15 @@ header {
 }
 #millennial-analysis h2 {
 	width: 100%;
-	color: #3A658F;
+	color: #232323;
 	font-size: 1.75em;
 	display: inline-block;
-	background-color: #FFEACE;
+	background-color: #76C370;
 	padding: 0.5em;
 	padding-top: 0.75em;
 }
 #millennial-analysis h3{
-	color: #85A7C8;
+	color: #232323;
 }
 #menu-text {
 	text-align: center;
@@ -251,11 +269,11 @@ header {
 
 // Welcome Analysis - Modals
 .storage-modal-header {
-	color: #3A658F;
+	color: #232323;
 	font-size: 1.5em;
 }
 .storage-modal-header:hover {
-	color: #BD812A;
+	color: white;
 	text-decoration: none;
 	cursor: pointer;	
 }
@@ -304,6 +322,8 @@ header {
 
 
 #analysis-graph {
+	font-size: 1.3em;
+	line-height: 1.6;
 	position: relative;
 	padding-bottom: 60%;
 	margin: 3% 10%;
@@ -311,6 +331,9 @@ header {
 			padding-bottom: 35%;
 			margin: 3% 20%;
 		}
+}
+#analysis-graphs text {
+	line-height: 1.6;
 }
 .chart {
 	position: absolute;
@@ -343,8 +366,8 @@ header {
 		}
 }
 #login-container h2 {
-	background-color: #FFEACE;
-	color: #3A658F;
+	background-color: #76C370;
+	color: #232323;
 	padding: 0.5em;
 }
 #login-form {
@@ -365,8 +388,8 @@ header {
 		}
 }
 #register-container h2 {
-	background-color: #FFEACE;
-	color: #3A658F;
+	background-color: #76C370;
+	color: #232323;
 	padding: 0.5em;
 }
 #register-form {
@@ -386,10 +409,10 @@ header {
 
 #user-data-container h2 {
 	width: 100%;
-	color: #3A658F;
+	color: #232323;
 	font-size: 1.75em;
 	display: inline-block;
-	background-color: #FFEACE;
+	background-color: #76C370;
 	padding: 0.5em;
 	padding-top: 0.75em;
 }
@@ -443,10 +466,10 @@ header {
 
 #user-daily-container h2 {
 	width: 100%;
-	color: #3A658F;
+	color: #232323;
 	font-size: 1.75em;
 	display: inline-block;
-	background-color: #FFEACE;
+	background-color: #76C370;
 	padding: 0.5em;
 	padding-top: 0.75em;
 }
@@ -469,10 +492,10 @@ header {
 
 #user-weekly-container h2 {
 	width: 100%;
-	color: #3A658F;
+	color: #232323;
 	font-size: 1.75em;
 	display: inline-block;
-	background-color: #FFEACE;
+	background-color: #76C370;
 	padding: 0.5em;
 	padding-top: 0.75em;
 }
@@ -489,10 +512,10 @@ header {
 
 #user-monthly-container h2 {
 	width: 100%;
-	color: #3A658F;
+	color: #232323;
 	font-size: 1.75em;
 	display: inline-block;
-	background-color: #FFEACE;
+	background-color: #76C370;
 	padding: 0.5em;
 	padding-top: 0.75em;
 }
@@ -509,10 +532,10 @@ header {
 
 #user-annually-container h2 {
 	width: 100%;
-	color: #3A658F;
+	color: #232323;
 	font-size: 1.75em;
 	display: inline-block;
-	background-color: #FFEACE;
+	background-color: #76C370;
 	padding: 0.5em;
 	padding-top: 0.75em;
 }
@@ -530,10 +553,10 @@ header {
 
 #user-lifetime-container h2 {
 	width: 100%;
-	color: #3A658F;
+	color: #232323;
 	font-size: 1.75em;
 	display: inline-block;
-	background-color: #FFEACE;
+	background-color: #76C370;
 	padding: 0.5em;
 	padding-top: 0.75em;
 }

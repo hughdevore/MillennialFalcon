@@ -22,14 +22,14 @@
 
 		<div id="analysis-output">
 			<h3> Visualize the Data </h3>
-			<button type="button" class="btn btn-primary btn-lg analysis-output-btn" ng-click="onTableClick()">Table</button>
 			<button type="button" class="btn btn-primary btn-lg analysis-output-btn" ng-click="onGraphClick()">Graph</button>
+			<button type="button" class="btn btn-primary btn-lg analysis-output-btn" ng-click="onTableClick()">Table</button>
 		</div>
 		<hr>
 	</section>
 
 
-	<div id="analysis-tables" ng-show="analysisTable">
+	<div id="analysis-tables" ng-hide="analysisTable">
 		<div id="stocks" class="panel panel-default analysis-table">
 		  <!-- Default panel contents -->
 		  <div class="panel-head panel-heading">
@@ -43,7 +43,7 @@
 	                <div><strong><a href="http://www.investopedia.com/terms/p/portfolio.asp">Overview</a></strong></div>
 	                <p class="text">A grouping of financial assets such as stocks, bonds and cash equivalents, as well as their mutual, exchange-traded and closed-fund counterparts. Portfolios are held directly by investors and/or managed by financial professionals.</p>
 	                <div><strong><a href="http://thelawdictionary.org/article/do-i-have-to-pay-taxes-on-my-stock-portfolio/">Taxes</a></strong></div>
-	                <p class="text">For our analysis we will only consider the regular "capital gains" income that you'll realize upon selling stocks that have appreciated in value during the time in which you held them. Which, in this example, is a 25% tax rate for anything sold before a year passes, while it is 15% for anything held longer.</p>
+	                <p class="text">For our analysis we will only consider the regular "capital gains" income that one would realize upon selling stocks that have appreciated in value during the time in which one held them. Which, in this example, is a 25% tax rate for anything sold before a year passes, while it is 15% for anything held longer.</p>
 				</div>
 			</section>
 		  </div>
@@ -77,8 +77,8 @@
 	  			<div class="content" ng-show="modals.savings">
 	                <div><strong><a href="http://www.investopedia.com/terms/s/savingsaccount.asp">Overview</a></strong></div>
 	                <p class="text">Because savings accounts almost always pay lower interest rates than Treasury bills and certificates of deposit, they should not be used for long-term holding periods. Their main advantages are liquidity and superior rates compared to checking accounts. Most modern savings accounts offer access to funds through visits to a local branch, over the internet and through automated teller machines.</p>
-	                <div><strong>Taxes</strong></div>
-	                <p class="text"><small>This is a synopsis of the tax ramifications on stocks.</small></p>
+	                <a href="http://www.irs.gov/taxtopics/tc403.html"><strong>Taxes</strong></a>
+	                <p class="text">Most interest that you either receive or is credited to your account and that you can withdraw without penalty is taxable income in the year it becomes available to you. However, anything less than $10 in interest is not taxed.</p>
 				</div>
 	  		</section>
 	  	</div>
@@ -111,7 +111,10 @@
 
 	  			<div class="content" ng-show="modals.traditional">
 	                <div><strong>Overview</strong></div>
-	                <p class="text"><small>This is a synopsis of a savings account.</small></p>
+	                <p class="text">401k
+	                	<p><small>A qualified plan established by employers to which eligible employees may make salary deferral (salary reduction) contributions on a post-tax and/or pretax basis. Employers offering a 401(k) plan may make matching or non-elective contributions to the plan on behalf of eligible employees and may also add a profit-sharing feature to the plan. Earnings accrue on a tax-deferred basis.</small>
+						
+	                </p>
 	                <div><strong>Taxes</strong></div>
 	                <p class="text"><small>This is a synopsis of the tax ramifications on stocks.</small></p>
 				</div>
@@ -172,7 +175,7 @@
 		
 	</div>
 
-	<div id="analysis-graphs" ng-hide="analysisGraph">
+	<div id="analysis-graphs" ng-show="analysisGraph">
 		<div id="analysis-graph">
 			<div data-ac-chart="'bar'" data-ac-data="data" data-ac-config="config" class="chart"></div>
 		</div>
@@ -181,14 +184,12 @@
 </section>
 
 <section id="millennials">	
-  		<a class="millennial-modal-header" ng-click="modals.millennial = !modals.millennial">
+  		<div class="millennial-modal-header">
   			<h2 id="millennial-header">THE AVERAGE MILLENNIAL
-	  		<span class="glyphicon glyphicon-triangle-bottom" ng-hide="modals.millennial"></span>
-	  		<span class="glyphicon glyphicon-triangle-top" ng-show="modals.millennial"></span>
 	  		</h2>
-  		</a>
+  		</div>
   		
-		<div ng-show="modals.millennial">
+		<div>
             <div class="millennial-content">
                 <h3>The User</h3>
                 <p class="text">Why a millennial? Because our generation has been faced with the toughest financial environment in recent history, while receiving the least financial education to navigate it.</p>

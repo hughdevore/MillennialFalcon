@@ -17,7 +17,7 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 
 	$rootScope.$on('login_event', function() {
 		$scope.logged = true;
-	})
+	});
 
 })
 .controller('WelcomeCtrl', function($scope, $state) {
@@ -27,9 +27,6 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
     	$state.go('analysis', {estimateValue: $scope.estimateValue});
   	};
 
-  	jQuery(function($){
-   		$("#welcome-input").mask("9,999,999");
-	});
 })
 .controller('WelcomeAnalysisCtrl', function($scope, $stateParams) {
 	$scope.analysisYear = 1;
@@ -42,17 +39,16 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 	var value = parseInt($stateParams.estimateValue);
 
 	$scope.onTableClick = function() {
-		$scope.analysisTable = true;
-		$scope.analysisGraph= true;
-	};
-
-	$scope.onGraphClick = function() {
 		$scope.analysisTable = false;
 		$scope.analysisGraph= false;
 	};
 
+	$scope.onGraphClick = function() {
+		$scope.analysisTable = true;
+		$scope.analysisGraph = true;
+	};
+
 	$scope.modals = {
-		millennial: true,
 		stocks: true,
 		savings: true,
 		traditional: true,
@@ -373,7 +369,8 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 		      //could be 'left, right'
 		      position: 'right'
 		    },
-		    colors: ["#85A7C8", "#DCA34F", "#3A658F", "#FFD9A3"]
+		    colors: ["#85A7C8", "#DCA34F", "#3A658F", "#FFD9A3"],
+		    waitForHeightAndWidth: true
 		  };
 
 	}();
