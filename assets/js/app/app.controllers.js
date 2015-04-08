@@ -101,7 +101,6 @@ angular.module('app.controllers', ['app.services', 'app.directives'])
 			} else {
 				$scope.capitalGainsCalc = $scope.growthCalc * longTermCapGains;
 			}
-
 			$scope.capitalGains = parseInt($scope.capitalGainsCalc).toLocaleString('en-US');
 
 			$scope.stockEndValueCalc = $scope.stockStartValueCalc + $scope.growthCalc - $scope.capitalGainsCalc;

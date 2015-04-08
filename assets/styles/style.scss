@@ -332,12 +332,13 @@ header {
 
 
 #analysis-graph {
-	font-size: 1.3em;
+	font-size: 1em;
 	line-height: 1.6;
 	position: relative;
 	padding-bottom: 60%;
 	margin: 3% 10%;
 	@media(min-width: 600px) {
+			font-size: 1.3em;
 			padding-bottom: 35%;
 			margin: 3% 20%;
 		}
